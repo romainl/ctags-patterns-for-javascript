@@ -1,0 +1,1 @@
+# ctags-patterns-for-javascript

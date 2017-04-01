@@ -1,0 +1,13 @@
+{
+  "name": "ctags-patterns-for-javascript",
+  "version": "0.0.1",
+  "description": "Ctags patterns for JavaScript",
+  "main": "index.js",
+  "repository": "git@github.com:romainl/ctags-patterns-for-javascript.git",
+  "author": "Romain Lafourcade <romainlafourcade@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+      "watch": "ls index.js | entr ctags -R --javascript-kinds=-p-v-c-f-m .",
+      "ctags": "ctags -R --javascript-kinds=-p-v-c-f-m ."
+  }
+}

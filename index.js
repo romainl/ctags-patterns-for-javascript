@@ -27,7 +27,7 @@ var obj_lit_inline = { prop_baz: 1 };
 
 // constructors & methods
 // ----------------------
-var constr_var = function() {
+var Constr_var = function() {
     this.constr_var_meth = function() {
         return true;
     };
@@ -56,7 +56,7 @@ function function_basic() {
 
 // classes
 // -------
-class Class {
+class ClassName {
     constructor(prop) {
         this.cl_constr_prop = prop;
         this.cl_constr_meth = function(){
@@ -83,32 +83,24 @@ let class_instance = new Class();
 
 // imports
 // -------
-// import defaultMember from "module-name"; // OK
-// import * as name from "module-name"; // OK
-// import { member } from "module-name";
-// import { member as alias } from "module-name"; // OK
-// import { member1, member2 } from "module-name";
-// import { member1, member2 as alias2 , [...] } from "module-name";
-// import defaultMember, { member [ , [...] ] } from "module-name";
-// import defaultMember, * as name from "module-name"; // OK
-// import "module-name";
-// import {foo as foo1, bar as bar1, baz as baz1} from "module-name";
+import import01 from "module-name";
+import { import02 } from "module-name";
+import { member as import03 } from "module-name";
+import import04, { import05 } from "module-name";
+import {foo as import06, import07, baz as import08} from "module-name";
+import * as import09 from "module-name";
+import defaultMember as import10 from "module-name";
+import import11, * as import12 from "module-name";
 
 
 // exports
 // -------
-// export default var_const;
-// export { name1, name2, …, nameN };
-// export { variable1 as name1, variable2 as name2, …, nameN };
-// export let name1, name2, …, nameN; // also var
-// export let name1 = …, name2 = …, …, nameN; // also var, const
+// export { export01, export02, export03 };
+// export { variable1 as export04, variable2 as export05};
+// export let export06, export07;
+// export var export06, export07;
+// export let export08 = 1, export09 = 2;
+// export const export10 = 1, export11 = 2;
+// export var export12 = 1, export13 = 2;
 
-// export expression;
-// export default expression;
-// export default function (…) { … } // also class, function*
-// export default function name1(…) { … } // also class, function*
-// export { name1 as default, … };
-
-// export * from …;
-// export { name1, name2, …, nameN } from …;
-// export { import1 as name1, import2 as name2, …, nameN } from …;
+// export default function export14() { return 1; }

@@ -1,26 +1,31 @@
 --langmap=javascript:.js
 --regex-javascript=/\/\/[ \t]*(FIXME|TODO)[ \t]*\:*(.*)/\1/T,Tag,Tags/
+
 --regex-javascript=/^[ \t]*(var|let|const)[ \t]+([A-Za-z0-9._$]+)[ \t]*=[ \t]*[^\[{]*;$/\2/V,Variable,Variables/
 --regex-javascript=/^[ \t]*(var|let|const)[ \t]+([A-Za-z0-9._$]+)[ \t]*=[ \t]*\[/\2/A,Array,Arrays/
 --regex-javascript=/^[ \t]*(var|let|const)[ \t]+([A-Za-z0-9._$]+)[ \t]*=[ \t]*{/\2/O,Object,Objects/
+
 --regex-javascript=/^[ \t]*this\.([A-Za-z0-9_$]+)[ \t]*=.*{$/\1/M,Method,Methods/
 --regex-javascript=/^[ \t]*([A-Za-z0-9_$]+)[ \t]*[:=][ \t]*[\(]*function[ \t]*\(/\1/M,Method,Methods/
 --regex-javascript=/^[ \t]*static[ \t]+([A-Za-z0-9_$]+)[ \t]*\(/\1/M,Method,Methods/
 --regex-javascript=/^[ \t]*([A-Za-z0-9_$]+)[ \t]*\(/\1/M,Method,Methods/
+
 --regex-javascript=/^[ \t]*function[ \t]*([A-Za-z0-9._$]+)/\1/F,Function,Functions/
 --regex-javascript=/^[ \t]*[\(]function[ \t]*([A-Za-z0-9._$]+)/\1/F,Function,Functions/
---regex-javascript=/^[ \t]*(var|let|const)[ \t]+([A-Za-z0-9._$]+)[ \t]*=[ \t]*function/\2/C,Class,Classes/
+--regex-javascript=/^[ \t]*(var|let|const)[ \t]+([a-z][A-Za-z0-9_$]+)[ \t]*=[ \t]*function/\2/F,Function,Functions/
+
+--regex-javascript=/^[ \t]*(var|let|const)[ \t]+([A-Z][A-Za-z0-9_$]+)[ \t]*=[ \t]*function/\2/C,Class,Classes/
 --regex-javascript=/^[ \t]*class[ \t]+([A-Za-z0-9._$]+)/\1/C,Class,Classes/
+
 --regex-javascript=/^[ \t]*(this\.)*([A-Za-z0-9_$]+)[ \t]*[:=].*[,;]*[^{]$/\2/P,Property,Properties/
 
-
---regex-javascript=/^[ \t]*export[ \t](default[ \t])*([A-Za-z0-9._$]+)/\2/E,Export,Exports/
---regex-javascript=/^[ \t]*import[ \t]([A-Za-z0-9._$]+)[ \t]from/\1/I,Import,Imports/
---regex-javascript=/^[ \t]*import[ \t]{[ \t]*([A-Za-z0-9._$]+).*}[ \t]from/\1/I,Import,Imports/
---regex-javascript=/^[ \t]*import[ \t]{[ \t]*([A-Za-z0-9._$]+)(,[ \t])([A-Za-z0-9._$]+).*}[ \t]from/\3/I,Import,Imports/
---regex-javascript=/^[ \t]*import[ \t]{[ \t]*([A-Za-z0-9._$]+)(,[ \t])([A-Za-z0-9._$]+)(,[ \t])([A-Za-z0-9._$]+).*}[ \t]from/\5/I,Import,Imports/
---regex-javascript=/^[ \t]*import[ \t].*as[ \t]([A-Za-z0-9._$]+)([ \t]})*[ \t]from/\1/I,Import,Imports/
---regex-javascript=/^[ \t]*import[ \t].*as[ \t]([A-Za-z0-9._$]+).*[ \t]from/\1/I,Import,Imports/
+--regex-javascript=/^[ \t]*import[ \t]?([A-Za-z0-9_$]+)[ \t]?from/\1/I,Import,Imports/
+--regex-javascript=/^[ \t]*import[ \t]?([A-Za-z0-9_$]+)[ \t]*,.*[ \t]?from/\1/I,Import,Imports/
+--regex-javascript=/^[ \t]*import[ \t]?.*[ \t]as[ \t]?([A-Za-z0-9._$]+)[ \t]?from/\1/I,Import,Imports/
+--regex-javascript=/^[ \t]*import[ \t]?[^,]?,*[ \t]*([A-Za-z0-9_$]+)[ \t]*}[ \t]?from[ \t].*$/\1/I,Import,Imports/
+--regex-javascript=/([A-Za-z0-9_$]+)[ \t]*}[ \t]+from[ \t]+.*$/\1/I,Import,Imports/
+--regex-javascript=/([A-Za-z0-9_$]+)[ \t]*,[^,]*}[ \t]+from[ \t]+.*$/\1/I,Import,Imports/
+--regex-javascript=/([A-Za-z0-9_$]+)[ \t]*,[^,]*,[^,]*}[ \t]+from[ \t]+.*$/\1/I,Import,Imports/
 
 --exclude=.git
 --exclude=.svn

@@ -83,14 +83,26 @@ let class_instance = new Class();
 
 // imports
 // -------
-import import01 from "module-name";
-import { import02 } from "module-name";
-import { member as import03 } from "module-name";
-import import04, { import05 } from "module-name";
-import {foo as import06, import07, baz as import08} from "module-name";
-import * as import09 from "module-name";
-import defaultMember as import10 from "module-name";
-import import11, * as import12 from "module-name";
+import { imp1 }
+import { * as imp2 }
+import { foo as imp3 }
+import { imp4, * as imp5 }
+import { imp6, bar as imp7 }
+import { imp8, imp9, * as imp10 }
+import { imp11, imp12, baz as imp13 }
+import { * as imp14, * as imp15, * as imp16 }
+import { foo as imp17, bar as imp18, baz as imp19 }
+import { imp20, imp21, imp22 }
+import imp1
+import * as imp2
+import foo as imp3
+import imp4, * as imp5
+import imp6, bar as imp7
+import imp8, imp9, * as imp10
+import imp11, imp12, baz as imp13
+import * as imp14, * as imp15, * as imp16
+import foo as imp17, bar as imp18, baz as imp19
+import imp20, imp21, imp22
 
 
 // exports

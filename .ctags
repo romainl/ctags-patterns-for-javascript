@@ -19,13 +19,9 @@
 
 --regex-javascript=/^[ \t]*(this\.)*([A-Za-z0-9_$]+)[ \t]*[:=].*[,;]*[^{]$/\2/P,Property,Properties/
 
---regex-javascript=/^[ \t]*import[ \t]?([A-Za-z0-9_$]+)[ \t]?from/\1/I,Import,Imports/
---regex-javascript=/^[ \t]*import[ \t]?([A-Za-z0-9_$]+)[ \t]*,.*[ \t]?from/\1/I,Import,Imports/
---regex-javascript=/^[ \t]*import[ \t]?.*[ \t]as[ \t]?([A-Za-z0-9._$]+)[ \t]?from/\1/I,Import,Imports/
---regex-javascript=/^[ \t]*import[ \t]?[^,]?,*[ \t]*([A-Za-z0-9_$]+)[ \t]*}[ \t]?from[ \t].*$/\1/I,Import,Imports/
---regex-javascript=/([A-Za-z0-9_$]+)[ \t]*}[ \t]+from[ \t]+.*$/\1/I,Import,Imports/
---regex-javascript=/([A-Za-z0-9_$]+)[ \t]*,[^,]*}[ \t]+from[ \t]+.*$/\1/I,Import,Imports/
---regex-javascript=/([A-Za-z0-9_$]+)[ \t]*,[^,]*,[^,]*}[ \t]+from[ \t]+.*$/\1/I,Import,Imports/
+--regex-javascript=/^[ \t]*import[ \t]?({[ \t]*)*([A-Za-z0-9_\*]*[ \t]as[ \t])*([A-Za-z0-9_]+)/\3/I,Import,Imports/
+--regex-javascript=/^[ \t]*import[ \t]?({[ \t]*)*([A-Za-z0-9_\*]*[ \t]as[ \t])*([A-Za-z0-9_]+),[ \t]*([A-Za-z0-9_\*]*[ \t]as[ \t])*([A-Za-z0-9_]+)/\5/I,Import,Imports/
+--regex-javascript=/^[ \t]*import[ \t]?({[ \t]*)*([A-Za-z0-9_\*]*[ \t]as[ \t])*([A-Za-z0-9_]+),[ \t]*([A-Za-z0-9_\*]*[ \t]as[ \t])*([A-Za-z0-9_]+),[ \t]*([A-Za-z0-9_\*]*[ \t]as[ \t])*([A-Za-z0-9_]+)/\7/I,Import,Imports/
 
 --exclude=.git
 --exclude=.svn

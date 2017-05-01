@@ -1,6 +1,40 @@
 # Exuberant ctags patterns for JavaScript
 
-Try them with:
+The purpose of this project is to modernize and augment the custom JavaScript patterns that have been floating the web for years.
+
+Our goal is to make sure ctags doesn't miss a single named symbol in our whole code base without unnecessary duplication:
+
+* variables,
+* array literals,
+* object literals,
+* object properties,
+* free-form functions,
+* classes and constructors,
+* methods,
+* imports,
+* exports (TODO)…
+
+This is done by creating new "kinds" and crafting as many patterns as necessary.
+
+You can try the current patterns with:
+
+    $ ctags --javascript-kinds=-c-f-m-p-v -R .
+
+The `--javascript-kinds=-c-f-m-p-v` parameter is here to override the default kinds with our own.
+
+## Use
+
+### If you don't already have a `~/.ctags` file
+
+1. Copy `.ctags` to your `$HOME` directory.
+2. Use this command to generate a `tags` file at the root of your JavaScript project:
+
+    $ ctags --javascript-kinds=-c-f-m-p-v -R .
+
+### If you already have a `~/.ctags` file
+
+1. Append the content of `.ctags` to `~/.ctags`.
+2. Use this command to generate a `tags` file at the root of your JavaScript project:
 
     $ ctags --javascript-kinds=-c-f-m-p-v -R .
 
@@ -173,20 +207,4 @@ TODO:
     import imp20, imp21, imp22                          | imp20, imp21, imp22 | I
 
 
-## Exports
-
-    CODE                                                | TAG                 | KIND
-    ----------------------------------------------------|---------------------|-----
-
-TODO:
-
-    export { export01, export02, export03 };
-    export { variable1 as export04, variable2 as export05};
-    export let export06, export07;
-    export var export06, export07;
-    export let export08 = 1, export09 = 2;
-    export const export10 = 1, export11 = 2;
-    export var export12 = 1, export13 = 2;
-
-    export default function export14() { return 1; }
-
+## Exports (TODO)

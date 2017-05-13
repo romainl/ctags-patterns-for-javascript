@@ -28,14 +28,14 @@ You can try the current patterns by running this command at the root of this rep
 1. Copy `.ctags` to your `$HOME` directory.
 2. Use this command to generate a `tags` file at the root of your JavaScript project:
 
-    $ ctags -R .
+        $ ctags -R .
 
 ### If you already have a `~/.ctags` file
 
 1. Append the content of `.ctags` to `~/.ctags`.
 2. Use this command to generate a `tags` file at the root of your JavaScript project:
 
-    $ ctags -R .
+        $ ctags -R .
 
 ## Tags
 

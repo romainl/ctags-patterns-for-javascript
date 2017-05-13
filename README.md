@@ -1,26 +1,25 @@
 # Exuberant ctags patterns for JavaScript
 
-The purpose of this project is to modernize and augment the custom JavaScript patterns that have been floating the web for years.
+The purpose of this project is to modernize and augment the many custom JavaScript patterns that have been floating the web for years.
 
-Our goal is to make sure ctags doesn't miss a single named symbol in our whole code base without unnecessary duplication:
+We want to make sure ctags doesn't miss a single named symbol in our whole code base and do so without unnecessary duplication:
 
 * variables,
 * array literals,
 * object literals,
 * object properties,
 * free-form functions,
+* generator functions,
 * classes and constructors,
 * methods,
 * imports,
 * exports (TODO)…
 
-This is done by creating new "kinds" and crafting as many patterns as necessary.
+This is done by disabling the default "kinds", creating new ones, and crafting as many patterns as necessary.
 
-You can try the current patterns with:
+You can try the current patterns by running this command at the root of this repository:
 
-    $ ctags --javascript-kinds=-c-f-m-p-v -R .
-
-The `--javascript-kinds=-c-f-m-p-v` parameter is here to override the default kinds with our own.
+    $ ctags -R .
 
 ## Use
 
@@ -29,14 +28,14 @@ The `--javascript-kinds=-c-f-m-p-v` parameter is here to override the default ki
 1. Copy `.ctags` to your `$HOME` directory.
 2. Use this command to generate a `tags` file at the root of your JavaScript project:
 
-    $ ctags --javascript-kinds=-c-f-m-p-v -R .
+        $ ctags -R .
 
 ### If you already have a `~/.ctags` file
 
 1. Append the content of `.ctags` to `~/.ctags`.
 2. Use this command to generate a `tags` file at the root of your JavaScript project:
 
-    $ ctags --javascript-kinds=-c-f-m-p-v -R .
+        $ ctags -R .
 
 ## Tags
 
@@ -55,7 +54,7 @@ The `--javascript-kinds=-c-f-m-p-v` parameter is here to override the default ki
 
 ### Pattern
 
-    --regex-javascript=/^[ \t]*(var|let|const)[ \t]+([A-Za-z0-9._$]+)[ \t]*=[ \t]*\[/\2/A,Array,Arrays/
+    --regex-javascript=/^[ \t]*(var|let|const)[ \t]+([A-Za-z0-9_$]+)[ \t]*=[ \t]*\[/\2/A,Array,Arrays/
 
 ### Support
 
@@ -69,7 +68,7 @@ The `--javascript-kinds=-c-f-m-p-v` parameter is here to override the default ki
 
 ### Pattern
 
-    --regex-javascript=/^[ \t]*(var|let|const)[ \t]+([A-Za-z0-9._$]+)[ \t]*=[ \t]*{/\2/O,Object,Objects/
+    --regex-javascript=/^[ \t]*(var|let|const)[ \t]+([A-Za-z0-9_$]+)[ \t]*=[ \t]*{/\2/O,Object,Objects/
 
 ### Support
 
@@ -101,13 +100,34 @@ TODO:
     var obj_lit_inline = { prop_qux: 1 };
 
 
+## Generator functions
+
+### Patterns
+
+    --regex-javascript=/^[ \t]*function[ \t]*\*[ \t]*([A-Za-z0-9_$]+)/\1/G,Generator,Generators/
+    --regex-javascript=/^[ \t]*(var|let|const)[ \t]+([a-z][A-Za-z0-9_$]+)[ \t]*=[ \t]*function([ \t]*\*)/\2/G,Generator,Genrators/
+    --regex-javascript=/^[ \t]*(\*[ \t])([A-Za-z0-9_$]+)[ \t]*\(.*\)[ \t]*{/\2/G,Generator,Generators/
+
+### Support
+
+    CODE                                                | TAG                 | KIND
+    ----------------------------------------------------|---------------------|-----
+    function* generator_name() {...                     | generator_name      | G
+    function *generator_name() {...                     | generator_name      | G
+    function * generator_name() {...                    | generator_name      | G
+    function*generator_name() {...                      | generator_name      | G
+    const generator_name = function* () {...            | generator_name      | G
+    const generator_name = function * () {...           | generator_name      | G
+    * generator_name() {...                             | generator_name      | G
+
+
 ## Functions
 
 ### Patterns
 
-    --regex-javascript=/^[ \t]*function[ \t]*([A-Za-z0-9._$]+)/\1/F,Function,Functions/
-    --regex-javascript=/^[ \t]*[\(]function[ \t]*([A-Za-z0-9._$]+)/\1/F,Function,Functions/
-    --regex-javascript=/^[ \t]*(var|let|const)[ \t]+([a-z][A-Za-z0-9_$]+)[ \t]*=[ \t]*function/\2/F,Function,Functions/
+    --regex-javascript=/^[ \t]*function[ \t]*([A-Za-z0-9_$]+)[ \t\(]/\1/F,Function,Functions/
+    --regex-javascript=/^[ \t]*[\(]function[ \t]*([A-Za-z0-9_$]+)[ \t\(]/\1/F,Function,Functions/
+    --regex-javascript=/^[ \t]*(var|let|const)[ \t]+([a-z][A-Za-z0-9_$]+)[ \t]*=[ \t]*function[^\*][^\*]/\2/F,Function,Functions/
 
 ### Support
 
@@ -125,13 +145,13 @@ TODO:
 ### Patterns
 
     --regex-javascript=/^[ \t]*(var|let|const)[ \t]+([A-Z][A-Za-z0-9_$]+)[ \t]*=[ \t]*function/\2/C,Class,Classes/
-    --regex-javascript=/^[ \t]*class[ \t]+([A-Za-z0-9._$]+)/\1/C,Class,Classes/
+    --regex-javascript=/^[ \t]*class[ \t]+([A-Za-z0-9_$]+)/\1/C,Class,Classes/
 
 ### Support
 
     CODE                                                | TAG                 | KIND
     ----------------------------------------------------|---------------------|-----
-    class ClassName {                                   | ClassName           | C
+    class ClassName {...                                | ClassName           | C
     var Constructor = function() {...                   | Constructor         | C
 
 
@@ -142,7 +162,7 @@ TODO:
     --regex-javascript=/^[ \t]*this\.([A-Za-z0-9_$]+)[ \t]*=.*{$/\1/M,Method,Methods/
     --regex-javascript=/^[ \t]*([A-Za-z0-9_$]+)[ \t]*[:=][ \t]*[\(]*function[ \t]*\(/\1/M,Method,Methods/
     --regex-javascript=/^[ \t]*static[ \t]+([A-Za-z0-9_$]+)[ \t]*\(/\1/M,Method,Methods/
-    --regex-javascript=/^[ \t]*([A-Za-z0-9_$]+)[ \t]*\(/\1/M,Method,Methods/
+    --regex-javascript=/^[ \t]*([A-Za-z0-9_$]+)[ \t]*\(.*\)[ \t]*{/\1/M,Method,Methods/
 
 ### Support
 
@@ -157,7 +177,7 @@ TODO:
 
 ### Pattern
 
-    --regex-javascript=/^[ \t]*(var|let|const)[ \t]+([A-Za-z0-9._$]+)[ \t]*=[ \t]*[^\[{]*;$/\2/V,Variable,Variables/
+    --regex-javascript=/^[ \t]*(var|let|const)[ \t]+([A-Za-z0-9_$]+)[ \t]*=[ \t]*[^\[{]*;$/\2/V,Variable,Variables/
 
 ### Support
 
@@ -171,7 +191,7 @@ TODO:
 
 TODO:
 
-* Special kinds for special types (RegExp, Math, Map, etc.)?)
+* Special kinds for special types (RegExp, Math, Map, etc.)?
 
 ## Imports
 

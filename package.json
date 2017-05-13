@@ -7,7 +7,7 @@
   "author": "Romain Lafourcade <romainlafourcade@gmail.com>",
   "license": "MIT",
   "scripts": {
-      "watch": "ls index.js | entr ctags -R --javascript-kinds=-p-v-c-f-m .",
-      "ctags": "ctags -R --javascript-kinds=-p-v-c-f-m ."
+      "watch": "ls index.js | entr ctags -R .",
+      "ctags": "ctags -R ."
   }
 }

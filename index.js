@@ -7,7 +7,7 @@
 // arrays
 // ------
 let arr_lit = [
-    1, 3, 4
+	1, 3, 4
 ];
 let arr_lit_inline = [1,4];
 
@@ -15,12 +15,12 @@ let arr_lit_inline = [1,4];
 // objects
 // -------
 var obj_lit = {
-    obj_lit_prop_foo: 123,
-    obj_lit_prop_bar : "eee",
-    obj_lit_prop_method : function(){
-        return this;
-    },
-    obj_lit_prop_qux : /regexp/
+	obj_lit_prop_foo: 123,
+	obj_lit_prop_bar : "eee",
+	obj_lit_prop_method : function(){
+		return this;
+	},
+	obj_lit_prop_qux : /regexp/
 };
 var obj_lit_inline = { prop_baz: 1 };
 
@@ -28,47 +28,86 @@ var obj_lit_inline = { prop_baz: 1 };
 // constructors & methods
 // ----------------------
 var Constr_var = function() {
-    this.constr_var_meth = function() {
-        return true;
-    };
+	this.constr_var_meth = function() {
+		return true;
+	};
 };
 const constr_const = function() {
-    this.constr_const_meth = function() {
-        return true;
-    };
+	this.constr_const_meth = function() {
+		return true;
+	};
 };
 let constr_let = function() {
-    this.constr_let_meth = function() {
-        return true;
-    };
+	this.constr_let_meth = function() {
+		return true;
+	};
 };
 
 
 // functions
 // ---------
 function function_basic() {
-    return 1;
+	return 1;
 }
 (function function_iife() {
-    return 2;
+	return 2;
 })();
+
+
+// generators
+// ----------
+function* func_generator1() {
+	var index = 0;
+	while(true)
+		yield index++;
+}
+function *func_generator2() {
+	var index = 0;
+	while(true)
+		yield index++;
+}
+function * func_generator3() {
+	var index = 0;
+	while(true)
+		yield index++;
+}
+function*func_generator4() {
+	var index = 0;
+	while(true)
+		yield index++;
+}
+const func_generator_const1 = function* () {
+	var index = 0;
+	while(true)
+		yield index++;
+};
+const func_generator_const2 = function * () {
+	var index = 0;
+	while(true)
+		yield index++;
+};
 
 
 // classes
 // -------
 class ClassName {
-    constructor(prop) {
-        this.cl_constr_prop = prop;
-        this.cl_constr_meth = function(){
-            return 666;
-        };
-    }
-    static class_meth_static() {
-        return 1;
-    }
-    class_meth_proto() {
-        return 2;
-    }
+	constructor(prop) {
+		this.cl_constr_prop = prop;
+		this.cl_constr_meth = function(){
+			return 666;
+		};
+	}
+	static class_meth_static() {
+		return 1;
+	}
+	class_meth_proto() {
+		return 2;
+	}
+	* func_generator_meth() {
+		var index = 0;
+		while (true)
+			yield index++;
+	}
 }
 
 

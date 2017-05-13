@@ -1,4 +1,4 @@
---langmap=javascript:.js
+--langmap=javascript:.js.es6.es.jsx
 --javascript-kinds=-c-f-m-p-v
 
 --regex-javascript=/\/\/[ \t]*(FIXME|TODO)[ \t]*\:*(.*)/\1/T,Tag,Tags/

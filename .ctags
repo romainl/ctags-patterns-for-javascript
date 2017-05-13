@@ -1,4 +1,6 @@
 --langmap=javascript:.js
+--javascript-kinds=-c-f-m-p-v
+
 --regex-javascript=/\/\/[ \t]*(FIXME|TODO)[ \t]*\:*(.*)/\1/T,Tag,Tags/
 
 --regex-javascript=/^[ \t]*(var|let|const)[ \t]+([A-Za-z0-9._$]+)[ \t]*=[ \t]*[^\[{]*;$/\2/V,Variable,Variables/
@@ -8,11 +10,16 @@
 --regex-javascript=/^[ \t]*this\.([A-Za-z0-9_$]+)[ \t]*=.*{$/\1/M,Method,Methods/
 --regex-javascript=/^[ \t]*([A-Za-z0-9_$]+)[ \t]*[:=][ \t]*[\(]*function[ \t]*\(/\1/M,Method,Methods/
 --regex-javascript=/^[ \t]*static[ \t]+([A-Za-z0-9_$]+)[ \t]*\(/\1/M,Method,Methods/
---regex-javascript=/^[ \t]*([A-Za-z0-9_$]+)[ \t]*\(/\1/M,Method,Methods/
+--regex-javascript=/^[ \t]*([A-Za-z0-9_$]+)[ \t]*\(.*\)[ \t]*{/\1/M,Method,Methods/
 
---regex-javascript=/^[ \t]*function[ \t]*([A-Za-z0-9._$]+)/\1/F,Function,Functions/
---regex-javascript=/^[ \t]*[\(]function[ \t]*([A-Za-z0-9._$]+)/\1/F,Function,Functions/
---regex-javascript=/^[ \t]*(var|let|const)[ \t]+([a-z][A-Za-z0-9_$]+)[ \t]*=[ \t]*function/\2/F,Function,Functions/
+--regex-javascript=/^[ \t]*function[ \t]*([A-Za-z0-9_$]+)[ \t\(]/\1/F,Function,Functions/
+--regex-javascript=/^[ \t]*[\(]function[ \t]*([A-Za-z0-9_$]+)[ \t\(]/\1/F,Function,Functions/
+--regex-javascript=/^[ \t]*(var|let|const)[ \t]+([a-z][A-Za-z0-9_$]+)[ \t]*=[ \t]*function[^\*]/\2/F,Function,Functions/
+
+--regex-javascript=/^[ \t]*function\*[ \t]*([A-Za-z0-9_$]+)/\*\1/G,Generator,Generators/
+--regex-javascript=/^[ \t]*function[ \t]*\*([A-Za-z0-9_$]+)/\*\1/G,Generator,Generators/
+--regex-javascript=/^[ \t]*function[ \t]*([A-Za-z0-9_$]+)\*/\*\1/G,Generator,Generators/
+--regex-javascript=/^[ \t]*(var|let|const)[ \t]+([a-z][A-Za-z0-9_$]+)[ \t]*=[ \t]*function\*/\*\2/G,Generator,Genrators/
 
 --regex-javascript=/^[ \t]*(var|let|const)[ \t]+([A-Z][A-Za-z0-9_$]+)[ \t]*=[ \t]*function/\2/C,Class,Classes/
 --regex-javascript=/^[ \t]*class[ \t]+([A-Za-z0-9._$]+)/\1/C,Class,Classes/

@@ -54,6 +54,26 @@ function function_basic() {
 })();
 
 
+// generators
+// ----------
+function* func_generator() {
+  var index = 0;
+  while(true)
+    yield index++;
+}
+function *func_generator() {
+  var index = 0;
+  while(true)
+    yield index++;
+}
+function func_generator*() {
+  var index = 0;
+  while(true)
+    yield index++;
+}
+const func_generator_const = function* () { ··· };
+
+
 // classes
 // -------
 class ClassName {

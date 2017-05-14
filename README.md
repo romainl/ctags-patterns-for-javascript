@@ -1,6 +1,6 @@
-# Exuberant ctags patterns for JavaScript
+# Exuberant ctags Patterns for JavaScript
 
-The purpose of this project is to modernize and augment the many custom JavaScript patterns that have been floating the web for years.
+The purpose of this project is to modernize and augment the many custom JavaScript Patterns that have been floating the web for years.
 
 We want to make sure ctags doesn't miss a single named symbol in our whole code base and do so without unnecessary duplication:
 
@@ -12,12 +12,12 @@ We want to make sure ctags doesn't miss a single named symbol in our whole code 
 * generator functions,
 * classes and constructors,
 * methods,
-* imports,
-* exports (TODO)…
+* named imports,
+* named exports
 
-This is done by disabling the default "kinds", creating new ones, and crafting as many patterns as necessary.
+This is done by disabling the default "kinds", creating new ones, and crafting as many Patterns as necessary.
 
-You can try the current patterns by running this command at the root of this repository:
+You can try the current Patterns by running this command at the root of this repository:
 
     $ ctags -R .
 
@@ -39,7 +39,7 @@ You can try the current patterns by running this command at the root of this rep
 
 ## Tags
 
-### Pattern
+### Patterns
 
     --regex-javascript=/\/\/[ \t]*(FIXME|TODO)[ \t]*\:*(.*)/\1/T,Tag,Tags/
 
@@ -48,11 +48,11 @@ You can try the current patterns by running this command at the root of this rep
     CODE                                                | TAG                 | KIND
     ----------------------------------------------------|---------------------|-----
     // TODO: better ES6+ support                        | TODO                | T
-    // FIXME: fix non-working patterns                  | FIXME               | T
+    // FIXME: fix non-working Patterns                  | FIXME               | T
 
 ## Array literals
 
-### Pattern
+### Patterns
 
     --regex-javascript=/^[ \t]*(var|let|const)[ \t]+([A-Za-z0-9_$]+)[ \t]*=[ \t]*\[/\2/A,Array,Arrays/
 
@@ -66,7 +66,7 @@ You can try the current patterns by running this command at the root of this rep
 
 ## Object literals
 
-### Pattern
+### Patterns
 
     --regex-javascript=/^[ \t]*(var|let|const)[ \t]+([A-Za-z0-9_$]+)[ \t]*=[ \t]*{/\2/O,Object,Objects/
 
@@ -80,7 +80,7 @@ You can try the current patterns by running this command at the root of this rep
 
 ## Object properties
 
-### Pattern
+### Patterns
 
     --regex-javascript=/^[ \t]*(this\.)*([A-Za-z0-9_$]+)[ \t]*[:=].*[,;]*[^{]$/\2/P,Property,Properties/
 
@@ -175,7 +175,7 @@ TODO:
 
 ## Variables
 
-### Pattern
+### Patterns
 
     --regex-javascript=/^[ \t]*(var|let|const)[ \t]+([A-Za-z0-9_$]+)[ \t]*=[ \t]*[^\[{]*;$/\2/V,Variable,Variables/
 
@@ -191,40 +191,61 @@ TODO:
 
 TODO:
 
+* `var foo, bar, baz;`
 * Special kinds for special types (RegExp, Math, Map, etc.)?
 
 ## Imports
 
-### patterns
+Tagging direct imports would be redundant so we only tag named imports.
 
-    --regex-javascript=/^[ \t]*import[ \t]?({[ \t]*)*([A-Za-z0-9_\*]*[ \t]as[ \t])*([A-Za-z0-9_]+)/\3/I,Import,Imports/
-    --regex-javascript=/^[ \t]*import[ \t]?({[ \t]*)*([A-Za-z0-9_\*]*[ \t]as[ \t])*([A-Za-z0-9_]+),[ \t]*([A-Za-z0-9_\*]*[ \t]as[ \t])*([A-Za-z0-9_]+)/\5/I,Import,Imports/
-    --regex-javascript=/^[ \t]*import[ \t]?({[ \t]*)*([A-Za-z0-9_\*]*[ \t]as[ \t])*([A-Za-z0-9_]+),[ \t]*([A-Za-z0-9_\*]*[ \t]as[ \t])*([A-Za-z0-9_]+),[ \t]*([A-Za-z0-9_\*]*[ \t]as[ \t])*([A-Za-z0-9_]+)/\7/I,Import,Imports/
+### Patterns
+
+    --regex-javascript=/^[ \t]*import[ \t]?({[ \t]*)*([A-Za-z0-9_\*]*[ \t]as[ \t])([A-Za-z0-9_]+)/\3/I,Import,Imports/
+    --regex-javascript=/^[ \t]*import[ \t]?({[ \t]*)*([A-Za-z0-9_\*]*[ \t]as[ \t])*([A-Za-z0-9_]+),[ \t]*([A-Za-z0-9_\*]*[ \t]as[ \t])([A-Za-z0-9_]+)/\5/I,Import,Imports/
+    --regex-javascript=/^[ \t]*import[ \t]?({[ \t]*)*([A-Za-z0-9_\*]*[ \t]as[ \t])*([A-Za-z0-9_]+),[ \t]*([A-Za-z0-9_\*]*[ \t]as[ \t])*([A-Za-z0-9_]+),[ \t]*([A-Za-z0-9_\*]*[ \t]as[ \t])([A-Za-z0-9_]+)/\7/I,Import,Imports/
 
 ### Support
 
     CODE                                                | TAG                 | KIND
     ----------------------------------------------------|---------------------|-----
-    import { imp1 }                                     | imp1                | I
-    import { * as imp2 }                                | imp2                | I
-    import { foo as imp3 }                              | imp3                | I
-    import { imp4, * as imp5 }                          | imp4, imp5          | I
-    import { imp6, bar as imp7 }                        | imp6, imp7          | I
-    import { imp8, imp9, * as imp10 }                   | imp8, imp9, imp10   | I
-    import { imp11, imp12, baz as imp13 }               | imp11, imp12, imp13 | I
-    import { * as imp14, * as imp15, * as imp16 }       | imp14, imp15, imp16 | I
-    import { foo as imp17, bar as imp18, baz as imp19 } | imp17, imp18, imp19 | I
-    import { imp20, imp21, imp22 }                      | imp20, imp21, imp22 | I
-    import imp1                                         | imp1                | I
-    import * as imp2                                    | imp2                | I
-    import foo as imp3                                  | imp3                | I
-    import imp4, * as imp5                              | imp4, imp5          | I
-    import imp6, bar as imp7                            | imp6, imp7          | I
-    import imp8, imp9, * as imp10                       | imp8, imp9, imp10   | I
-    import imp11, imp12, baz as imp13                   | imp11, imp12, imp13 | I
-    import * as imp14, * as imp15, * as imp16           | imp14, imp15, imp16 | I
-    import foo as imp17, bar as imp18, baz as imp19     | imp17, imp18, imp19 | I
-    import imp20, imp21, imp22                          | imp20, imp21, imp22 | I
+    import { * as imp1 }                                | imp1                | I
+    import { foo as imp2 }                              | imp2                | I
+    import { imp3, * as imp4 }                          | imp4                | I
+    import { imp5, bar as imp6 }                        | imp6                | I
+    import { imp7, imp8, * as imp9 }                    | imp9                | I
+    import { imp10, imp11, baz as imp12 }               | imp12               | I
+    import { * as imp13, * as imp14, * as imp15 }       | imp13, imp14, imp15 | I
+    import { foo as imp16, bar as imp17, baz as imp18 } | imp16, imp17, imp18 | I
+    import * as imp19                                   | imp19               | I
+    import foo as imp20                                 | imp20               | I
+    import imp21, * as imp22                            | imp22               | I
+    import imp23, bar as imp24                          | imp24               | I
+    import imp25, imp26, * as imp27                     | imp27               | I
+    import imp28, imp29, baz as imp30                   | imp30               | I
+    import * as imp31, * as imp32, * as imp33           | imp31, imp32, imp33 | I
+    import foo as imp34, bar as imp35, baz as imp36     | imp34, imp35, imp36 | I
 
 
-## Exports (TODO)
+## Exports
+
+Same story as imports, tagging direct exports would be redundant so we only tag named exports.
+
+### Patterns
+
+    --regex-javascript=/^[ \t]*export[ \t]?({[ \t]*)*([A-Za-z0-9_\*]*[ \t]as[ \t])([A-Za-z0-9_]+)/\3/E,Export,Exports/
+    --regex-javascript=/^[ \t]*export[ \t]?({[ \t]*)*([A-Za-z0-9_\*]*[ \t]as[ \t])*([A-Za-z0-9_]+),[ \t]*([A-Za-z0-9_\*]*[ \t]as[ \t])([A-Za-z0-9_]+)/\5/E,export,Exports/
+    --regex-javascript=/^[ \t]*export[ \t]?({[ \t]*)*([A-Za-z0-9_\*]*[ \t]as[ \t])*([A-Za-z0-9_]+),[ \t]*([A-Za-z0-9_\*]*[ \t]as[ \t])*([A-Za-z0-9_]+),[ \t]*([A-Za-z0-9_\*]*[ \t]as[ \t])([A-Za-z0-9_]+)/\7/E,Export,Exports/
+    --regex-javascript=/^[ \t]*export[ \t]?(var|let|const)[ \t]+([A_Za-z0-9_$]+)/\2/E,Export,Exports/
+    --regex-javascript=/^[ \t]*export[ \t]?(var|let|const)[ \t]+([A_Za-z0-9_$]+)[ \t]*[^,]+,[ \t]*([A_Za-z0-9_$]+)/\3/E,Export,Exports/
+    --regex-javascript=/^[ \t]*export[ \t]?(var|let|const)[ \t]+([A_Za-z0-9_$]+)[ \t]*[^,]+,[ \t]*([A_Za-z0-9_$]+)[ \t]*[^,]+,[ \t]*([A_Za-z0-9_$]+)/\4/E,Export,Exports/
+
+### Support
+
+    CODE                                                | TAG                 | KIND
+    ----------------------------------------------------|---------------------|-----
+    export { var1 as exp04, var2 as exp05 };            | exp04, exp05        | E
+    export let exp06, exp07;                            | exp06, exp07        | E
+    export var exp08, exp09, exp09b;                    | exp08, exp09        | E
+    export let exp10 = 1, exp11 = 2;                    | exp10, exp11        | E
+    export const exp12 = 1, exp13 = 2;                  | exp12, exp13        | E
+    export var exp14 = 1, exp15 = 2;                    | exp14, exp15        | E

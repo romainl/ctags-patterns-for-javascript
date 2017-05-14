@@ -56,32 +56,32 @@ function function_basic() {
 
 // generators
 // ----------
-function* func_generator1() {
+function* generator_func1() {
 	var index = 0;
 	while(true)
 		yield index++;
 }
-function *func_generator2() {
+function *generator_func2() {
 	var index = 0;
 	while(true)
 		yield index++;
 }
-function * func_generator3() {
+function * generator_func3() {
 	var index = 0;
 	while(true)
 		yield index++;
 }
-function*func_generator4() {
+function*generator_func4() {
 	var index = 0;
 	while(true)
 		yield index++;
 }
-const func_generator_const1 = function* () {
+const generator_func5 = function* () {
 	var index = 0;
 	while(true)
 		yield index++;
 };
-const func_generator_const2 = function * () {
+const generator_func6 = function * () {
 	var index = 0;
 	while(true)
 		yield index++;
@@ -103,7 +103,7 @@ class ClassName {
 	class_meth_proto() {
 		return 2;
 	}
-	* func_generator_meth() {
+	* class_meth_generator() {
 		var index = 0;
 		while (true)
 			yield index++;
@@ -123,34 +123,52 @@ let class_instance = new Class();
 // imports
 // -------
 import { imp1 }
-import { * as imp2 }
-import { foo as imp3 }
-import { imp4, * as imp5 }
-import { imp6, bar as imp7 }
-import { imp8, imp9, * as imp10 }
-import { imp11, imp12, baz as imp13 }
-import { * as imp14, * as imp15, * as imp16 }
-import { foo as imp17, bar as imp18, baz as imp19 }
+import { * as imp2 } // imp2
+import { foo as imp3 } // imp3
+import { imp4, * as imp5 } // imp5
+import { imp6, bar as imp7 } // imp7
+import { imp8, imp9, * as imp10 } // imp10
+import { imp11, imp12, baz as imp13 } // imp13
+import { * as imp14, * as imp15, * as imp16 } // imp14, imp15, imp16
+import { foo as imp17, bar as imp18, baz as imp19 } // imp17, imp18, imp19
 import { imp20, imp21, imp22 }
-import imp1
-import * as imp2
-import foo as imp3
-import imp4, * as imp5
-import imp6, bar as imp7
-import imp8, imp9, * as imp10
-import imp11, imp12, baz as imp13
-import * as imp14, * as imp15, * as imp16
-import foo as imp17, bar as imp18, baz as imp19
-import imp20, imp21, imp22
+import imp23
+import * as imp24 // imp24
+import foo as imp25 // imp25
+import imp26, * as imp27 // imp27
+import imp28, bar as imp29 // imp29
+import imp30, imp31, * as imp32 // imp32
+import imp33, imp34, baz as imp35 // imp35
+import * as imp36, * as imp37, * as imp38 // imp36, imp37, imp38
+import foo as imp39, bar as imp40, baz as imp41 // imp39, imp40, imp41
+import imp42, imp43, imp44
 
 
 // exports
 // -------
-// export { export01, export02, export03 };
-// export { variable1 as export04, variable2 as export05};
-// export let export06, export07;
-// export var export06, export07;
-// export let export08 = 1, export09 = 2;
-// export const export10 = 1, export11 = 2;
-// export var export12 = 1, export13 = 2;
-// export default function export14() { return 1; }
+export { exp01, exp02, exp03 };
+export { variable1 as exp04, variable2 as exp05}; // exp04; exp05
+export let exp06, exp07; // exp06, exp07
+export var exp08, exp09, exp09b; // exp08, exp09
+export let exp10 = 1, exp11 = 2; // exp10, exp11
+export const exp12 = 1, exp13 = 2; // exp12, exp13
+export var exp14 = 1, exp15 = 2; // exp14, exp15
+export default function exp16() { return 1; } // exp16
+
+/*
+
+Problems with imports and exports
+
+const foo -> export foo -> import foo
+	tag const foo
+
+const foo -> export foo -> import foo as bar
+	tag const foo AND import foo as bar
+
+const foo -> export foo as bar -> import bar
+	tag const foo AND export foo as bar
+
+const foo -> export foo  as bar -> import bar at baz
+	tag const foo AND export foo as bar AND import bar as baz
+
+*/

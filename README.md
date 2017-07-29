@@ -122,7 +122,7 @@ TODO:
     * generator_name() {...                             | generator_name      | G
 
 
-## Functions
+## Free-form functions
 
 ### Patterns
 

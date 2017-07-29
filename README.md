@@ -4,16 +4,17 @@ The purpose of this project is to modernize and augment the many custom JavaScri
 
 We want to make sure ctags doesn't miss a single named symbol in our whole code base and do so without unnecessary duplication:
 
-* variables,
-* array literals,
-* object literals,
-* object properties,
-* free-form functions,
-* generator functions,
-* classes and constructors,
-* methods,
-* named imports,
-* named exports
+* [tags](#tags),
+* [array literals](#array-literals),
+* [object literals](#object-literals),
+* [object properties](#abject-properties),
+* [generator functions](#generator-functions),
+* [free-form functions](#free-form-functions),
+* [constructors and classes](#constructors-and-classes),
+* [methods](#methods),
+* [variables](#variables),
+* [named imports](#name-imports),
+* [named exports](#named-exports)
 
 This is done by disabling the default "kinds", creating new ones, and crafting as many Patterns as necessary.
 
@@ -140,7 +141,7 @@ TODO:
     const func_name = function() {...                   | func_name           | F
 
 
-## Constructors & classes
+## Constructors and classes
 
 ### Patterns
 
@@ -194,7 +195,7 @@ TODO:
 * `var foo, bar, baz;`
 * Special kinds for special types (RegExp, Math, Map, etc.)?
 
-## Imports
+## Named imports
 
 Tagging direct imports would be redundant so we only tag named imports.
 
@@ -226,7 +227,7 @@ Tagging direct imports would be redundant so we only tag named imports.
     import foo as imp34, bar as imp35, baz as imp36     | imp34, imp35, imp36 | I
 
 
-## Exports
+## Named exports
 
 Same story as imports, tagging direct exports would be redundant so we only tag named exports.
 

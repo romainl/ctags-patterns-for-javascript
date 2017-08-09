@@ -42,14 +42,19 @@ You can try the current Patterns by running this command at the root of this rep
 
 ### Patterns
 
-    --regex-javascript=/\/\/[ \t]*(FIXME|TODO)[ \t]*\:*(.*)/\1/T,Tag,Tags/
+    --regex-javascript=/\/\/[ \t]*(FIXME|TODO|BUG|NOBUG|???|!!!|HACK|XXX)[ \t]*\:*(.*)/\1/T,Tag,Tags/
 
 ### Support
 
     CODE                                                | TAG                 | KIND
     ----------------------------------------------------|---------------------|-----
-    // TODO: better ES6+ support                        | TODO                | T
     // FIXME: fix non-working Patterns                  | FIXME               | T
+    // TODO: better ES6+ support                        | TODO                | T
+    // BUG: there's really something fishy about this   | BUG                 | T
+    // ???: what the flying fuck?                       | ???                 | T
+    // !!!: dear god!                                   | !!!                 | T
+    // HACK: deployment is in 15 minutes                | HACK                | T
+    // XXX: I. Must. Finish. That. Mess. Quickly.       | XXX                 | T
 
 ## Array literals
 

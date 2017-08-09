@@ -34,7 +34,7 @@
 
 --regex-javascript=/^[ \t]*(var|let|const)[ \t]+([A-Za-z0-9_$]+)[ \t]*=[ \t]*{/\2/O,Object,Objects/
 
---regex-javascript=/\/\/[ \t]*(FIXME|TODO)[ \t]*\:*(.*)/\1/T,Tag,Tags/
+--regex-javascript=/\/\/[ \t]*(FIXME|TODO|BUG|NOBUG|???|!!!|HACK|XXX)[ \t]*\:*(.*)/\1/T,Tag,Tags/
 
 --regex-javascript=/^[ \t]*(var|let|const)[ \t]+([A-Za-z0-9_$]+)[ \t]*=[ \t]*[^\[{]*;$/\2/V,Variable,Variables/
 

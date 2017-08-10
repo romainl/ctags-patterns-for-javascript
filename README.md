@@ -18,9 +18,9 @@ We want to make sure ctags doesn't miss a single named symbol in our whole code 
 
 This is done by disabling the default "kinds", creating new ones, and crafting as many Patterns as necessary.
 
-You can try the current Patterns by running this command at the root of this repository:
+## Try
 
-    $ ctags -R .
+    $ make tags
 
 ## Use
 

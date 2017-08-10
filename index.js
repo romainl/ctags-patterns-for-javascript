@@ -2,6 +2,11 @@
 // ----
 // TODO: better ES6+ support
 // FIXME: fix non-working patterns
+// BUG: there's really something fishy about this
+// ???: what the flying fuck?
+// !!!: dear god!
+// HACK: deployment is in 15 minutes
+// XXX: I. Must. Finish. That. Mess. Quickly.
 
 
 // arrays
@@ -32,12 +37,12 @@ var Constr_var = function() {
 		return true;
 	};
 };
-const constr_const = function() {
+const Constr_const = function() {
 	this.constr_const_meth = function() {
 		return true;
 	};
 };
-let constr_let = function() {
+let Constr_let = function() {
 	this.constr_let_meth = function() {
 		return true;
 	};
@@ -52,40 +57,43 @@ function function_basic() {
 (function function_iife() {
 	return 2;
 })();
+const function_const = function() {
+	return 3;
+};
 const function_arrow = (arg) => arg;
 
 
 // generators
 // ----------
 function* generator_func1() {
-	var index = 0;
+	var iterator1 = 0;
 	while(true)
-		yield index++;
+		yield iterator1++;
 }
 function *generator_func2() {
-	var index = 0;
+	var iterator2 = 0;
 	while(true)
-		yield index++;
+		yield iterator2++;
 }
 function * generator_func3() {
-	var index = 0;
+	var iterator3 = 0;
 	while(true)
-		yield index++;
+		yield iterator3++;
 }
 function*generator_func4() {
-	var index = 0;
+	var iterator4 = 0;
 	while(true)
-		yield index++;
+		yield iterator4++;
 }
 const generator_func5 = function* () {
-	var index = 0;
+	var iterator5 = 0;
 	while(true)
-		yield index++;
+		yield iterator5++;
 };
 const generator_func6 = function * () {
-	var index = 0;
+	var iterator6 = 0;
 	while(true)
-		yield index++;
+		yield iterator6++;
 };
 
 
@@ -104,6 +112,12 @@ class ClassName {
 	class_meth_proto() {
 		return 2;
 	}
+	if (foo) {
+		console.log(1);
+	}
+	for (var i = 0, len = things.length; i < len; i++) {
+		console.log(1);
+	}
 	* class_meth_generator() {
 		var index = 0;
 		while (true)
@@ -118,17 +132,17 @@ const var_const_number = 1;
 var var_var_regexp = /regexp/;
 let var_let_single_quotes = 'foo';
 let var_let_double_quotes = "bar";
-let class_instance = new Class();
+let class_instance = new ClassName();
 
 
 // imports
 // -------
-import { imp1 }
-import { * as imp2 } // imp2
-import { foo as imp3 } // imp3
-import { imp4, * as imp5 } // imp5
-import { imp6, bar as imp7 } // imp7
-import { imp8, imp9, * as imp10 } // imp10
+import { imp01 }
+import { * as imp02 } // imp02
+import { foo as imp03 } // imp03
+import { imp04, * as imp05 } // imp05
+import { imp06, bar as imp07 } // imp07
+import { imp08, imp09, * as imp10 } // imp10
 import { imp11, imp12, baz as imp13 } // imp13
 import { * as imp14, * as imp15, * as imp16 } // imp14, imp15, imp16
 import { foo as imp17, bar as imp18, baz as imp19 } // imp17, imp18, imp19
@@ -150,7 +164,7 @@ import imp42, imp43, imp44
 export { exp01, exp02, exp03 };
 export { variable1 as exp04, variable2 as exp05}; // exp04; exp05
 export let exp06, exp07; // exp06, exp07
-export var exp08, exp09, exp09b; // exp08, exp09
+export var exp08, exp09; // exp08, exp09
 export let exp10 = 1, exp11 = 2; // exp10, exp11
 export const exp12 = 1, exp13 = 2; // exp12, exp13
 export var exp14 = 1, exp15 = 2; // exp14, exp15

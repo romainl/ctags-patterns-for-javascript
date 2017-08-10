@@ -52,6 +52,7 @@ function function_basic() {
 (function function_iife() {
 	return 2;
 })();
+const function_arrow = (arg) => arg;
 
 
 // generators

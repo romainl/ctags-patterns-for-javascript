@@ -3,6 +3,7 @@
 // TODO: better ES6+ support
 // FIXME: fix non-working patterns
 // BUG: there's really something fishy about this
+// NOBUG: no that's OK
 // ???: what the flying fuck?
 // !!!: dear god!
 // HACK: deployment is in 15 minutes
@@ -66,32 +67,32 @@ const function_arrow = (arg) => arg;
 // generators
 // ----------
 function* generator_func1() {
-	var iterator1 = 0;
+	var generator_func1_iterator = 0;
 	while(true)
 		yield iterator1++;
 }
 function *generator_func2() {
-	var iterator2 = 0;
+	var generator_func2_iterator = 0;
 	while(true)
 		yield iterator2++;
 }
 function * generator_func3() {
-	var iterator3 = 0;
+	var generator_func3_iterator = 0;
 	while(true)
 		yield iterator3++;
 }
 function*generator_func4() {
-	var iterator4 = 0;
+	var generator_func4_iterator = 0;
 	while(true)
 		yield iterator4++;
 }
 const generator_func5 = function* () {
-	var iterator5 = 0;
+	var generator_func5_iterator = 0;
 	while(true)
 		yield iterator5++;
 };
 const generator_func6 = function * () {
-	var iterator6 = 0;
+	var generator_func6_iterator = 0;
 	while(true)
 		yield iterator6++;
 };
@@ -132,7 +133,9 @@ const var_const_number = 1;
 var var_var_regexp = /regexp/;
 let var_let_single_quotes = 'foo';
 let var_let_double_quotes = "bar";
-let class_instance = new ClassName();
+var var_class_instance = new ClassName();
+let let_class_instance = new ClassName();
+const const_class_instance = new ClassName();
 
 
 // imports
@@ -168,7 +171,6 @@ export var exp08, exp09; // exp08, exp09
 export let exp10 = 1, exp11 = 2; // exp10, exp11
 export const exp12 = 1, exp13 = 2; // exp12, exp13
 export var exp14 = 1, exp15 = 2; // exp14, exp15
-export default function exp16() { return 1; } // exp16
 
 /*
 

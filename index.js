@@ -58,6 +58,11 @@ function function_basic() {
 (function function_iife() {
 	return 2;
 })();
+(function() {
+	function function_inside_iife() {
+		return 2.1;
+	}
+})();
 const function_const = function() {
 	return 3;
 };

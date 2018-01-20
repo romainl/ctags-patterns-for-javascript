@@ -1,22 +1,26 @@
-# Exuberant ctags Patterns for JavaScript
+# Exuberant Ctags Patterns for JavaScript
 
-The purpose of this project is to modernize and augment the many custom JavaScript Patterns that have been floating the web for years.
+The purpose of this project is to modernize and augment the many custom JavaScript Patterns for Exuberant Ctags that have been floating the web for years.
 
-We want to make sure ctags doesn't miss a single named symbol in our whole code base and do so without unnecessary duplication:
+We want to make sure Exuberant Ctags doesn't miss a single named symbol in our whole code base and do so without unnecessary duplication:
 
-* [tags](#tags),
-* [array literals](#array-literals),
-* [object literals](#object-literals),
-* [object properties](#abject-properties),
-* [generator functions](#generator-functions),
-* [free-form functions](#free-form-functions),
-* [constructors and classes](#constructors-and-classes),
-* [methods](#methods),
-* [variables](#variables),
-* [named imports](#name-imports),
-* [named exports](#named-exports)
+* [Tags](#tags),
+* [Array literals](#array-literals),
+* [Object literals](#object-literals),
+* [Object properties](#abject-properties),
+* [Generator functions](#generator-functions),
+* [Free-form functions](#free-form-functions),
+* [Constructors and classes](#constructors-and-classes),
+* [Methods](#methods),
+* [Variables](#variables),
+* [Named imports](#name-imports),
+* [Named exports](#named-exports)
 
-This is done by disabling the default "kinds", creating new ones, and crafting as many Patterns as necessary.
+This is done by disabling the default "kinds", creating new ones, and crafting as many patterns as necessary.
+
+## Reminder
+
+These patterns are only usable with Exuberant Ctags. Universal Ctags is *not* currently supported.
 
 ## Try
 
@@ -42,7 +46,14 @@ This is done by disabling the default "kinds", creating new ones, and crafting a
 
 ### Patterns
 
-    --regex-javascript=/\/\/[ \t]*(FIXME|TODO|BUG|NOBUG|???|!!!|HACK|XXX)[ \t]*\:*(.*)/\1/T,Tag,Tags/
+    --regex-javascript=/\/\/[ \t]*\(FIXME\)[ \t]*:*\(.*\)/\1/T,Tag,Tags/b
+    --regex-javascript=/\/\/[ \t]*\(TODO\)[ \t]*:*\(.*\)/\1/T,Tag,Tags/b
+    --regex-javascript=/\/\/[ \t]*\(BUG\)[ \t]*:*\(.*\)/\1/T,Tag,Tags/b
+    --regex-javascript=/\/\/[ \t]*\(NOBUG\)[ \t]*:*\(.*\)/\1/T,Tag,Tags/b
+    --regex-javascript=/\/\/[ \t]*\(???\)[ \t]*:*\(.*\)/\1/T,Tag,Tags/b
+    --regex-javascript=/\/\/[ \t]*\(!!!\)[ \t]*:*\(.*\)/\1/T,Tag,Tags/b
+    --regex-javascript=/\/\/[ \t]*\(HACK\)[ \t]*:*\(.*\)/\1/T,Tag,Tags/b
+    --regex-javascript=/\/\/[ \t]*\(XXX\)[ \t]*:*\(.*\)/\1/T,Tag,Tags/b
 
 ### Support
 
@@ -60,7 +71,9 @@ This is done by disabling the default "kinds", creating new ones, and crafting a
 
 ### Patterns
 
-    --regex-javascript=/^[ \t]*(var|let|const)[ \t]+([A-Za-z0-9_$]+)[ \t]*=[ \t]*\[/\2/A,Array,Arrays/
+    --regex-javascript=/^[ \t]*var[ \t]\{1,\}\([A-Za-z0-9_$]\{1,\}\)[ \t]*=[ \t]*\[/\1/A,Array,Arrays/b
+    --regex-javascript=/^[ \t]*let[ \t]\{1,\}\([A-Za-z0-9_$]\{1,\}\)[ \t]*=[ \t]*\[/\1/A,Array,Arrays/b
+    --regex-javascript=/^[ \t]*const[ \t]\{1,\}\([A-Za-z0-9_$]\{1,\}\)[ \t]*=[ \t]*\[/\1/A,Array,Arrays/b
 
 ### Support
 
@@ -74,7 +87,9 @@ This is done by disabling the default "kinds", creating new ones, and crafting a
 
 ### Patterns
 
-    --regex-javascript=/^[ \t]*(var|let|const)[ \t]+([A-Za-z0-9_$]+)[ \t]*=[ \t]*{/\2/O,Object,Objects/
+    --regex-javascript=/^[ \t]*var[ \t]\{1,\}\([A-Za-z0-9_$]\{1,\}\)[ \t]*=[ \t]*[{]/\1/O,Object,Objects/b
+    --regex-javascript=/^[ \t]*let[ \t]\{1,\}\([A-Za-z0-9_$]\{1,\}\)[ \t]*=[ \t]*[{]/\1/O,Object,Objects/b
+    --regex-javascript=/^[ \t]*const[ \t]\{1,\}\([A-Za-z0-9_$]\{1,\}\)[ \t]*=[ \t]*[{]/\1/O,Object,Objects/b
 
 ### Support
 
@@ -88,7 +103,7 @@ This is done by disabling the default "kinds", creating new ones, and crafting a
 
 ### Patterns
 
-    --regex-javascript=/^[ \t]*(this\.)*([A-Za-z0-9_$]+)[ \t]*[:=].*[,;]*[^{]$/\2/P,Property,Properties/
+    --regex-javascript=/^[ \t]*\(this\.\)*\([A-Za-z0-9_$]\{1,\}\)[ \t]*[:=].*[,;]*[^{]$/\2/P,Property,Properties/b
 
 ### Support
 
@@ -110,9 +125,11 @@ TODO:
 
 ### Patterns
 
-    --regex-javascript=/^[ \t]*function[ \t]*\*[ \t]*([A-Za-z0-9_$]+)/\1/G,Generator,Generators/
-    --regex-javascript=/^[ \t]*(var|let|const)[ \t]+([a-z][A-Za-z0-9_$]+)[ \t]*=[ \t]*function([ \t]*\*)/\2/G,Generator,Genrators/
-    --regex-javascript=/^[ \t]*(\*[ \t])([A-Za-z0-9_$]+)[ \t]*\(.*\)[ \t]*{/\2/G,Generator,Generators/
+    --regex-javascript=/^[ \t]*function[ \t]*\*[ \t]*\([A-Za-z0-9_$]\{1,\}\)/\1/G,Generator,Generators/b
+    --regex-javascript=/^[ \t]*var[ \t]\{1,\}\([a-z][A-Za-z0-9_$]\{1,\}\)[ \t]*=[ \t]*function\([ \t]*\*\)/\1/G,Generator,Generators/b
+    --regex-javascript=/^[ \t]*let[ \t]\{1,\}\([a-z][A-Za-z0-9_$]\{1,\}\)[ \t]*=[ \t]*function\([ \t]*\*\)/\1/G,Generator,Generators/b
+    --regex-javascript=/^[ \t]*const[ \t]\{1,\}\([a-z][A-Za-z0-9_$]\{1,\}\)[ \t]*=[ \t]*function\([ \t]*\*\)/\1/G,Generator,Generators/b
+    --regex-javascript=/^[ \t]*\(\*[ \t]\)\([A-Za-z0-9_$]\{1,\}\)[ \t]*(.*)[ \t]*[{]/\2/G,Generator,Generators/b
 
 ### Support
 
@@ -131,9 +148,14 @@ TODO:
 
 ### Patterns
 
-    --regex-javascript=/^[ \t]*function[ \t]*([A-Za-z0-9_$]+)[ \t\(]/\1/F,Function,Functions/
-    --regex-javascript=/^[ \t]*[\(]function[ \t]*([A-Za-z0-9_$]+)[ \t\(]/\1/F,Function,Functions/
-    --regex-javascript=/^[ \t]*(var|let|const)[ \t]+([a-z][A-Za-z0-9_$]+)[ \t]*=[ \t]*function[^\*][^\*]/\2/F,Function,Functions/
+    --regex-javascript=/^[ \t]*function[ \t]*\([A-Za-z0-9_$]\{1,\}\)[ \t(]/\1/F,Function,Functions/b
+    --regex-javascript=/^[ \t]*[(]function[ \t]*\([A-Za-z0-9_$]\{1,\}\)[ \t(]/\1/F,Function,Functions/b
+    --regex-javascript=/^[ \t]*var[ \t]\{1,\}\([a-z][A-Za-z0-9_$]\{1,\}\)[ \t]*=[ \t]*function[^\*][^\*]/\1/F,Function,Functions/b
+    --regex-javascript=/^[ \t]*let[ \t]\{1,\}\([a-z][A-Za-z0-9_$]\{1,\}\)[ \t]*=[ \t]*function[^\*][^\*]/\1/F,Function,Functions/b
+    --regex-javascript=/^[ \t]*const[ \t]\{1,\}\([a-z][A-Za-z0-9_$]\{1,\}\)[ \t]*=[ \t]*function[^\*][^\*]/\1/F,Function,Functions/b
+    --regex-javascript=/^[ \t]*var[ \t]\{1,\}\([a-z][A-Za-z0-9_$]\{1,\}\)[ \t]*=[ \t]*([^\*]/\1/F,Function,Functions/b
+    --regex-javascript=/^[ \t]*let[ \t]\{1,\}\([a-z][A-Za-z0-9_$]\{1,\}\)[ \t]*=[ \t]*([^\*]/\1/F,Function,Functions/b
+    --regex-javascript=/^[ \t]*const[ \t]\{1,\}\([a-z][A-Za-z0-9_$]\{1,\}\)[ \t]*=[ \t]*([^\*]/\1/F,Function,Functions/b
 
 ### Support
 
@@ -150,8 +172,10 @@ TODO:
 
 ### Patterns
 
-    --regex-javascript=/^[ \t]*(var|let|const)[ \t]+([A-Z][A-Za-z0-9_$]+)[ \t]*=[ \t]*function/\2/C,Class,Classes/
-    --regex-javascript=/^[ \t]*class[ \t]+([A-Za-z0-9_$]+)/\1/C,Class,Classes/
+    --regex-javascript=/^[ \t]*var[ \t]\{1,\}\([A-Z][A-Za-z0-9_$]\{1,\}\)[ \t]*=[ \t]*function/\1/C,Class,Classes/b
+    --regex-javascript=/^[ \t]*let[ \t]\{1,\}\([A-Z][A-Za-z0-9_$]\{1,\}\)[ \t]*=[ \t]*function/\1/C,Class,Classes/b
+    --regex-javascript=/^[ \t]*const[ \t]\{1,\}\([A-Z][A-Za-z0-9_$]\{1,\}\)[ \t]*=[ \t]*function/\1/C,Class,Classes/b
+    --regex-javascript=/^[ \t]*class[ \t]\{1,\}\([A-Za-z0-9_$]\{1,\}\)/\1/C,Class,Classes/b
 
 ### Support
 
@@ -165,10 +189,10 @@ TODO:
 
 ### Patterns
 
-    --regex-javascript=/^[ \t]*this\.([A-Za-z0-9_$]+)[ \t]*=.*{$/\1/M,Method,Methods/
-    --regex-javascript=/^[ \t]*([A-Za-z0-9_$]+)[ \t]*[:=][ \t]*[\(]*function[ \t]*\(/\1/M,Method,Methods/
-    --regex-javascript=/^[ \t]*static[ \t]+([A-Za-z0-9_$]+)[ \t]*\(/\1/M,Method,Methods/
-    --regex-javascript=/^[ \t]*([A-Za-z0-9_$]+)[ \t]*\(.*\)[ \t]*{/\1/M,Method,Methods/
+    --regex-javascript=/^[ \t]*this\.\([A-Za-z0-9_$]\{1,\}\)[ \t]*=.*[{]$/\1/M,Method,Methods/b
+    --regex-javascript=/^[ \t]*\([A-Za-z0-9_$]\{1,\}\)[ \t]*[:=][ \t]*[(]*function[ \t]*(/\1/M,Method,Methods/b
+    --regex-javascript=/^[ \t]*static[ \t]\{1,\}\([A-Za-z0-9_$]\{1,\}\)[ \t]*(/\1/M,Method,Methods/b
+    --regex-javascript=/^[ \t]*\([A-Za-z0-9_$]\{1,\}\)(.*)[ \t]*[{]/\1/M,Method,Methods/b
 
 ### Support
 
@@ -183,7 +207,12 @@ TODO:
 
 ### Patterns
 
-    --regex-javascript=/^[ \t]*(var|let|const)[ \t]+([A-Za-z0-9_$]+)[ \t]*=[ \t]*[^\[{]*;$/\2/V,Variable,Variables/
+    --regex-javascript=/^[ \t]*var[ \t]\{1,\}\([A-Za-z0-9_$]\{1,\}\)[ \t]*=[ \t]*[0-9\"'\/]/\1/V,Variable,Variables/b
+    --regex-javascript=/^[ \t]*let[ \t]\{1,\}\([A-Za-z0-9_$]\{1,\}\)[ \t]*=[ \t]*[0-9\"'\/]/\1/V,Variable,Variables/b
+    --regex-javascript=/^[ \t]*const[ \t]\{1,\}\([A-Za-z0-9_$]\{1,\}\)[ \t]*=[ \t]*[0-9\"'\/]/\1/V,Variable,Variables/b
+    --regex-javascript=/^[ \t]*var[ \t]\{1,\}\([A-Za-z0-9_$]\{1,\}\)[ \t]*=[ \t]*new/\1/V,Variable,Variables/b
+    --regex-javascript=/^[ \t]*let[ \t]\{1,\}\([A-Za-z0-9_$]\{1,\}\)[ \t]*=[ \t]*new/\1/V,Variable,Variables/b
+    --regex-javascript=/^[ \t]*const[ \t]\{1,\}\([A-Za-z0-9_$]\{1,\}\)[ \t]*=[ \t]*new/\1/V,Variable,Variables/b
 
 ### Support
 
@@ -206,9 +235,9 @@ Tagging direct imports would be redundant so we only tag named imports.
 
 ### Patterns
 
-    --regex-javascript=/^[ \t]*import[ \t]?({[ \t]*)*([A-Za-z0-9_\*]*[ \t]as[ \t])([A-Za-z0-9_]+)/\3/I,Import,Imports/
-    --regex-javascript=/^[ \t]*import[ \t]?({[ \t]*)*([A-Za-z0-9_\*]*[ \t]as[ \t])*([A-Za-z0-9_]+),[ \t]*([A-Za-z0-9_\*]*[ \t]as[ \t])([A-Za-z0-9_]+)/\5/I,Import,Imports/
-    --regex-javascript=/^[ \t]*import[ \t]?({[ \t]*)*([A-Za-z0-9_\*]*[ \t]as[ \t])*([A-Za-z0-9_]+),[ \t]*([A-Za-z0-9_\*]*[ \t]as[ \t])*([A-Za-z0-9_]+),[ \t]*([A-Za-z0-9_\*]*[ \t]as[ \t])([A-Za-z0-9_]+)/\7/I,Import,Imports/
+    --regex-javascript=/^[ \t]*import[ \t]\{1,\}\([{][ \t]*\)*\([A-Za-z0-9_\*]*[ \t]as[ \t]\)\([A-Za-z0-9_]\{1,\}\)/\3/I,Import,Imports/b
+    --regex-javascript=/^[ \t]*import[ \t]\{1,\}\([{][ \t]*\)*\([A-Za-z0-9_\*]*[ \t]as[ \t]\)*\([A-Za-z0-9_]\{1,\}\),[ \t]*\([A-Za-z0-9_\*]*[ \t]as[ \t]\)\([A-Za-z0-9_]\{1,\}\)/\5/I,Import,Imports/b
+    --regex-javascript=/^[ \t]*import[ \t]\{1,\}\([{][ \t]*\)*\([A-Za-z0-9_\*]*[ \t]as[ \t]\)*\([A-Za-z0-9_]\{1,\}\),[ \t]*\([A-Za-z0-9_\*]*[ \t]as[ \t]\)*\([A-Za-z0-9_]\{1,\}\),[ \t]*\([A-Za-z0-9_\*]*[ \t]as[ \t]\)\([A-Za-z0-9_]\{1,\}\)/\7/I,Import,Imports/b
 
 ### Support
 
@@ -238,12 +267,18 @@ Same story as imports, tagging direct exports would be redundant so we only tag 
 
 ### Patterns
 
-    --regex-javascript=/^[ \t]*export[ \t]?({[ \t]*)*([A-Za-z0-9_\*]*[ \t]as[ \t])([A-Za-z0-9_]+)/\3/E,Export,Exports/
-    --regex-javascript=/^[ \t]*export[ \t]?({[ \t]*)*([A-Za-z0-9_\*]*[ \t]as[ \t])*([A-Za-z0-9_]+),[ \t]*([A-Za-z0-9_\*]*[ \t]as[ \t])([A-Za-z0-9_]+)/\5/E,export,Exports/
-    --regex-javascript=/^[ \t]*export[ \t]?({[ \t]*)*([A-Za-z0-9_\*]*[ \t]as[ \t])*([A-Za-z0-9_]+),[ \t]*([A-Za-z0-9_\*]*[ \t]as[ \t])*([A-Za-z0-9_]+),[ \t]*([A-Za-z0-9_\*]*[ \t]as[ \t])([A-Za-z0-9_]+)/\7/E,Export,Exports/
-    --regex-javascript=/^[ \t]*export[ \t]?(var|let|const)[ \t]+([A_Za-z0-9_$]+)/\2/E,Export,Exports/
-    --regex-javascript=/^[ \t]*export[ \t]?(var|let|const)[ \t]+([A_Za-z0-9_$]+)[ \t]*[^,]+,[ \t]*([A_Za-z0-9_$]+)/\3/E,Export,Exports/
-    --regex-javascript=/^[ \t]*export[ \t]?(var|let|const)[ \t]+([A_Za-z0-9_$]+)[ \t]*[^,]+,[ \t]*([A_Za-z0-9_$]+)[ \t]*[^,]+,[ \t]*([A_Za-z0-9_$]+)/\4/E,Export,Exports/
+    --regex-javascript=/^[ \t]*export[ \t]\{1,\}\({[ \t]*\)*\([A-Za-z0-9_\*]*[ \t]as[ \t]\)\([A-Za-z0-9_]\{1,\}\)/\3/E,Export,Exports/b
+    --regex-javascript=/^[ \t]*export[ \t]\{1,\}\({[ \t]*\)*\([A-Za-z0-9_\*]*[ \t]as[ \t]\)*\([A-Za-z0-9_]\{1,\}\),[ \t]*\([A-Za-z0-9_\*]*[ \t]as[ \t]\)\([A-Za-z0-9_]\{1,\}\)/\5/E,export,Exports/b
+    --regex-javascript=/^[ \t]*export[ \t]\{1,\}\({[ \t]*\)*\([A-Za-z0-9_\*]*[ \t]as[ \t]\)*\([A-Za-z0-9_]\{1,\}\),[ \t]*\([A-Za-z0-9_\*]*[ \t]as[ \t]\)*\([A-Za-z0-9_]\{1,\}\),[ \t]*\([A-Za-z0-9_\*]*[ \t]as[ \t]\)\([A-Za-z0-9_]\{1,\}\)/\7/E,Export,Exports/b
+    --regex-javascript=/^[ \t]*export[ \t]\{1,\}var[ \t]\{1,\}\([A_Za-z0-9_$]\{1,\}\)/\1/E,Export,Exports/b
+    --regex-javascript=/^[ \t]*export[ \t]\{1,\}let[ \t]\{1,\}\([A_Za-z0-9_$]\{1,\}\)/\1/E,Export,Exports/b
+    --regex-javascript=/^[ \t]*export[ \t]\{1,\}const[ \t]\{1,\}\([A_Za-z0-9_$]\{1,\}\)/\1/E,Export,Exports/b
+    --regex-javascript=/^[ \t]*export[ \t]\{1,\}var[ \t]\{1,\}\([A_Za-z0-9_$]\{1,\}\)[ \t]*[^,]\{1,\},[ \t]*\([A_Za-z0-9_$]\{1,\}\)/\2/E,Export,Exports/b
+    --regex-javascript=/^[ \t]*export[ \t]\{1,\}let[ \t]\{1,\}\([A_Za-z0-9_$]\{1,\}\)[ \t]*[^,]\{1,\},[ \t]*\([A_Za-z0-9_$]\{1,\}\)/\2/E,Export,Exports/b
+    --regex-javascript=/^[ \t]*export[ \t]\{1,\}const[ \t]\{1,\}\([A_Za-z0-9_$]\{1,\}\)[ \t]*[^,]\{1,\},[ \t]*\([A_Za-z0-9_$]\{1,\}\)/\2/E,Export,Exports/b
+    --regex-javascript=/^[ \t]*export[ \t]\{1,\}var[ \t]\{1,\}\([A_Za-z0-9_$]\{1,\}\)[ \t]*[^,]\{1,\},[ \t]*\([A_Za-z0-9_$]\{1,\}\)[ \t]*,[ \t]*\([A_Za-z0-9_$]\{1,\}\)/\3/E,Export,Exports/b
+    --regex-javascript=/^[ \t]*export[ \t]\{1,\}let[ \t]\{1,\}\([A_Za-z0-9_$]\{1,\}\)[ \t]*[^,]\{1,\},[ \t]*\([A_Za-z0-9_$]\{1,\}\)[ \t]*,[ \t]*\([A_Za-z0-9_$]\{1,\}\)/\3/E,Export,Exports/b
+    --regex-javascript=/^[ \t]*export[ \t]\{1,\}const[ \t]\{1,\}\([A_Za-z0-9_$]\{1,\}\)[ \t]*[^,]\{1,\},[ \t]*\([A_Za-z0-9_$]\{1,\}\)[ \t]*,[ \t]*\([A_Za-z0-9_$]\{1,\}\)/\3/E,Export,Exports/b
 
 ### Support
 

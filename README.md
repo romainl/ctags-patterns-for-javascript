@@ -18,9 +18,14 @@ We want to make sure Exuberant Ctags doesn't miss a single named symbol in our w
 
 This is done by disabling the default "kinds", creating new ones, and crafting as many patterns as necessary.
 
-## Reminder
+## Reminders
 
-These patterns are only usable with Exuberant Ctags. Universal Ctags is *not* currently supported.
+These patterns are only usable with Exuberant Ctags. Universal Ctags is *not* currently supported.  
+
+Note about disabling the default "kinds".  
+The option `--javascript-kinds=-c-f-m-p-v` in [.ctags](.ctags) will disable the kinds: `c,f,m,p,v` for javascript files.  
+This means your ctags program's builtin regex patterns or any user defined patterns registered against these kinds will no longer function and the patterns defined in [.ctags](.ctags) will be the only patterns active for the javascript language.  
+This is done to have a single source of patterns and avoid duplicated tags.
 
 ## Try
 

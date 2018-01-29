@@ -7,7 +7,7 @@ We want to make sure Exuberant Ctags doesn't miss a single named symbol in our w
 * [Tags](#tags),
 * [Array literals](#array-literals),
 * [Object literals](#object-literals),
-* [Object properties](#abject-properties),
+* [Object properties](#object-properties),
 * [Generator functions](#generator-functions),
 * [Free-form functions](#free-form-functions),
 * [Constructors and classes](#constructors-and-classes),

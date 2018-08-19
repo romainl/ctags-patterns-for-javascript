@@ -278,15 +278,26 @@ Same story as imports, tagging direct exports would be redundant so we only tag 
     --regex-javascript=/^[ \t]*export[ \t]\{1,\}\({[ \t]*\)*\([A-Za-z0-9_\*]*[ \t]as[ \t]\)\([A-Za-z0-9_]\{1,\}\)/\3/E,Export,Exports/b
     --regex-javascript=/^[ \t]*export[ \t]\{1,\}\({[ \t]*\)*\([A-Za-z0-9_\*]*[ \t]as[ \t]\)*\([A-Za-z0-9_]\{1,\}\),[ \t]*\([A-Za-z0-9_\*]*[ \t]as[ \t]\)\([A-Za-z0-9_]\{1,\}\)/\5/E,export,Exports/b
     --regex-javascript=/^[ \t]*export[ \t]\{1,\}\({[ \t]*\)*\([A-Za-z0-9_\*]*[ \t]as[ \t]\)*\([A-Za-z0-9_]\{1,\}\),[ \t]*\([A-Za-z0-9_\*]*[ \t]as[ \t]\)*\([A-Za-z0-9_]\{1,\}\),[ \t]*\([A-Za-z0-9_\*]*[ \t]as[ \t]\)\([A-Za-z0-9_]\{1,\}\)/\7/E,Export,Exports/b
-    --regex-javascript=/^[ \t]*export[ \t]\{1,\}var[ \t]\{1,\}\([A_Za-z0-9_$]\{1,\}\)/\1/E,Export,Exports/b
-    --regex-javascript=/^[ \t]*export[ \t]\{1,\}let[ \t]\{1,\}\([A_Za-z0-9_$]\{1,\}\)/\1/E,Export,Exports/b
-    --regex-javascript=/^[ \t]*export[ \t]\{1,\}const[ \t]\{1,\}\([A_Za-z0-9_$]\{1,\}\)/\1/E,Export,Exports/b
-    --regex-javascript=/^[ \t]*export[ \t]\{1,\}var[ \t]\{1,\}\([A_Za-z0-9_$]\{1,\}\)[ \t]*[^,]\{1,\},[ \t]*\([A_Za-z0-9_$]\{1,\}\)/\2/E,Export,Exports/b
-    --regex-javascript=/^[ \t]*export[ \t]\{1,\}let[ \t]\{1,\}\([A_Za-z0-9_$]\{1,\}\)[ \t]*[^,]\{1,\},[ \t]*\([A_Za-z0-9_$]\{1,\}\)/\2/E,Export,Exports/b
-    --regex-javascript=/^[ \t]*export[ \t]\{1,\}const[ \t]\{1,\}\([A_Za-z0-9_$]\{1,\}\)[ \t]*[^,]\{1,\},[ \t]*\([A_Za-z0-9_$]\{1,\}\)/\2/E,Export,Exports/b
-    --regex-javascript=/^[ \t]*export[ \t]\{1,\}var[ \t]\{1,\}\([A_Za-z0-9_$]\{1,\}\)[ \t]*[^,]\{1,\},[ \t]*\([A_Za-z0-9_$]\{1,\}\)[ \t]*,[ \t]*\([A_Za-z0-9_$]\{1,\}\)/\3/E,Export,Exports/b
-    --regex-javascript=/^[ \t]*export[ \t]\{1,\}let[ \t]\{1,\}\([A_Za-z0-9_$]\{1,\}\)[ \t]*[^,]\{1,\},[ \t]*\([A_Za-z0-9_$]\{1,\}\)[ \t]*,[ \t]*\([A_Za-z0-9_$]\{1,\}\)/\3/E,Export,Exports/b
-    --regex-javascript=/^[ \t]*export[ \t]\{1,\}const[ \t]\{1,\}\([A_Za-z0-9_$]\{1,\}\)[ \t]*[^,]\{1,\},[ \t]*\([A_Za-z0-9_$]\{1,\}\)[ \t]*,[ \t]*\([A_Za-z0-9_$]\{1,\}\)/\3/E,Export,Exports/b
+    --regex-javascript=/^[ \t]*export[ \t]\{1,\}var[ \t]\{1,\}\([A-Za-z0-9_$]\{1,\}\)/\1/E,Export,Exports/b
+    --regex-javascript=/^[ \t]*export[ \t]\{1,\}let[ \t]\{1,\}\([A-Za-z0-9_$]\{1,\}\)/\1/E,Export,Exports/b
+    --regex-javascript=/^[ \t]*export[ \t]\{1,\}const[ \t]\{1,\}\([A-Za-z0-9_$]\{1,\}\)/\1/E,Export,Exports/b
+    --regex-javascript=/^[ \t]*export[ \t]\{1,\}function[ \t]\{1,\}\([A-Za-z0-9_$]\{1,\}\)/\1/E,Export,Exports/b
+    --regex-javascript=/^[ \t]*export[ \t]\{1,\}var[ \t]\{1,\}\([A-Za-z0-9_$]\{1,\}\)[ \t]*[^,]\{1,\},[ \t]*\([A-Za-z0-9_$]\{1,\}\)/\2/E,Export,Exports/b
+    --regex-javascript=/^[ \t]*export[ \t]\{1,\}let[ \t]\{1,\}\([A-Za-z0-9_$]\{1,\}\)[ \t]*[^,]\{1,\},[ \t]*\([A-Za-z0-9_$]\{1,\}\)/\2/E,Export,Exports/b
+    --regex-javascript=/^[ \t]*export[ \t]\{1,\}const[ \t]\{1,\}\([A-Za-z0-9_$]\{1,\}\)[ \t]*[^,]\{1,\},[ \t]*\([A-Za-z0-9_$]\{1,\}\)/\2/E,Export,Exports/b
+    --regex-javascript=/^[ \t]*export[ \t]\{1,\}var[ \t]\{1,\}\([A-Za-z0-9_$]\{1,\}\)[ \t]*[^,]\{1,\},[ \t]*\([A-Za-z0-9_$]\{1,\}\)[ \t]*,[ \t]*\([A-Za-z0-9_$]\{1,\}\)/\3/E,Export,Exports/b
+    --regex-javascript=/^[ \t]*export[ \t]\{1,\}let[ \t]\{1,\}\([A-Za-z0-9_$]\{1,\}\)[ \t]*[^,]\{1,\},[ \t]*\([A-Za-z0-9_$]\{1,\}\)[ \t]*,[ \t]*\([A-Za-z0-9_$]\{1,\}\)/\3/E,Export,Exports/b
+    --regex-javascript=/^[ \t]*export[ \t]\{1,\}const[ \t]\{1,\}\([A-Za-z0-9_$]\{1,\}\)[ \t]*[^,]\{1,\},[ \t]*\([A-Za-z0-9_$]\{1,\}\)[ \t]*,[ \t]*\([A-Za-z0-9_$]\{1,\}\)/\3/E,Export,Exports/b
+    --regex-javascript=/^[ \t]*export[ \t]\{1,\}default[ \t]\{1,\}var[ \t]\{1,\}\([A-Za-z0-9_$]\{1,\}\)/\1/E,Export,Exports/b
+    --regex-javascript=/^[ \t]*export[ \t]\{1,\}default[ \t]\{1,\}let[ \t]\{1,\}\([A-Za-z0-9_$]\{1,\}\)/\1/E,Export,Exports/b
+    --regex-javascript=/^[ \t]*export[ \t]\{1,\}default[ \t]\{1,\}const[ \t]\{1,\}\([A-Za-z0-9_$]\{1,\}\)/\1/E,Export,Exports/b
+    --regex-javascript=/^[ \t]*export[ \t]\{1,\}default[ \t]\{1,\}function[ \t]\{1,\}\([A-Za-z0-9_$]\{1,\}\)/\1/E,Export,Exports/b
+    --regex-javascript=/^[ \t]*export[ \t]\{1,\}default[ \t]\{1,\}var[ \t]\{1,\}\([A-Za-z0-9_$]\{1,\}\)[ \t]*[^,]\{1,\},[ \t]*\([A-Za-z0-9_$]\{1,\}\)/\2/E,Export,Exports/b
+    --regex-javascript=/^[ \t]*export[ \t]\{1,\}default[ \t]\{1,\}let[ \t]\{1,\}\([A-Za-z0-9_$]\{1,\}\)[ \t]*[^,]\{1,\},[ \t]*\([A-Za-z0-9_$]\{1,\}\)/\2/E,Export,Exports/b
+    --regex-javascript=/^[ \t]*export[ \t]\{1,\}default[ \t]\{1,\}const[ \t]\{1,\}\([A-Za-z0-9_$]\{1,\}\)[ \t]*[^,]\{1,\},[ \t]*\([A-Za-z0-9_$]\{1,\}\)/\2/E,Export,Exports/b
+    --regex-javascript=/^[ \t]*export[ \t]\{1,\}default[ \t]\{1,\}var[ \t]\{1,\}\([A-Za-z0-9_$]\{1,\}\)[ \t]*[^,]\{1,\},[ \t]*\([A-Za-z0-9_$]\{1,\}\)[ \t]*,[ \t]*\([A-Za-z0-9_$]\{1,\}\)/\3/E,Export,Exports/b
+    --regex-javascript=/^[ \t]*export[ \t]\{1,\}default[ \t]\{1,\}let[ \t]\{1,\}\([A-Za-z0-9_$]\{1,\}\)[ \t]*[^,]\{1,\},[ \t]*\([A-Za-z0-9_$]\{1,\}\)[ \t]*,[ \t]*\([A-Za-z0-9_$]\{1,\}\)/\3/E,Export,Exports/b
+    --regex-javascript=/^[ \t]*export[ \t]\{1,\}default[ \t]\{1,\}const[ \t]\{1,\}\([A-Za-z0-9_$]\{1,\}\)[ \t]*[^,]\{1,\},[ \t]*\([A-Za-z0-9_$]\{1,\}\)[ \t]*,[ \t]*\([A-Za-z0-9_$]\{1,\}\)/\3/E,Export,Exports/b
 
 ### Support
 
@@ -298,3 +309,11 @@ Same story as imports, tagging direct exports would be redundant so we only tag 
     export let exp10 = 1, exp11 = 2;                    | exp10, exp11        | E
     export const exp12 = 1, exp13 = 2;                  | exp12, exp13        | E
     export var exp14 = 1, exp15 = 2;                    | exp14, exp15        | E
+    export function exp16() {}                          | exp16               | E
+    export default { var1 as exp20, var2 as exp21};     | exp20; exp21        | E
+    export default let exp22, exp23;                    | exp22, exp23        | E
+    export default var exp24, exp25;                    | exp24, exp25        | E
+    export default let exp26 = 1, exp27 = 2;            | exp26, exp27        | E
+    export default const exp28 = 1, exp29 = 2;          | exp28, exp29        | E
+    export default var exp30 = 1, exp31 = 2;            | exp30, exp31        | E
+    export default function exp32() {}                  | exp32               | E

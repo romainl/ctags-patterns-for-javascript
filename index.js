@@ -171,6 +171,7 @@ export var exp08, exp09; // exp08, exp09
 export let exp10 = 1, exp11 = 2; // exp10, exp11
 export const exp12 = 1, exp13 = 2; // exp12, exp13
 export var exp14 = 1, exp15 = 2; // exp14, exp15
+export function exp16() {} // exp16
 
 /*
 

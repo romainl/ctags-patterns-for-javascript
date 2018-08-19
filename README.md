@@ -24,9 +24,9 @@ These patterns are only usable with Exuberant Ctags. Universal Ctags is *not* cu
 
 Note about disabling the default "kinds".
 
-The option `--javascript-kinds=-c-f-m-p-v` in [.ctags](.ctags) will disable the default kinds, `c` (classes), `f` (functions), `m` (methods), `p` (properties), and `v` (global variables), for javascript files.
+The option `--javascript-kinds=-c-f-m-p-v` in [.ctags](.ctags) will disable the default kinds, `c` (classes), `f` (functions), `m` (methods), `p` (properties), and `v` (global variables), for JavaScript files.
 
-This means your ctags program's builtin regex patterns or any user defined patterns registered against these kinds will no longer function and the patterns defined in [.ctags](.ctags) will be the only patterns active for the javascript language.
+This means your ctags program's builtin regex patterns or any user defined patterns registered against these kinds will no longer function and the patterns defined in [.ctags](.ctags) will be the only patterns active for the JavaScript language.
 
 This is done to have a single source of patterns and avoid duplicated tags.
 
@@ -313,3 +313,33 @@ Same story as imports, tagging direct exports would be redundant so we only tag 
     export default const exp28 = 1, exp29 = 2;          | exp28, exp29        | E
     export default var exp30 = 1, exp31 = 2;            | exp30, exp31        | E
     export default function exp32() {}                  | exp32               | E
+
+## Hack
+
+### Regular expressions dialect
+
+Because Exuberant Ctags takes no responsibility about the regular expression engine it uses under the hood, we must use the dumbest dialect, BRE, for portability. This has a number of consequences:
+
+* no alternation,
+* no lookbehind,
+* no backreference,
+* a verbose and frustrating syntax.
+
+But we are hackers, right?
+
+### Watch and re-index
+
+The bundled `Makefile` has a very simple `watch` phony target that will run `make tags` every second. In turn, the `tags` target will run `ctags -f tags index.js` only if `.ctags` or `index.js` have changed since last run.
+
+This allows us to start the watcher in a terminal:
+
+    $ make watch
+
+open `.ctags`, `index.js`, and the `tags` file:
+
+    $ vim -O tags .ctags index.js +'set autoread' +'autocmd! CursorHold,CursorHoldI * checktime'
+
+and watch our `tags` file change as we edit existing patterns in `.ctags` or add expressions in `index.js`.
+
+
+[//]: # ( Vim: set spell spelllang=en: )

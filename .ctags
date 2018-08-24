@@ -60,7 +60,7 @@
 --regex-javascript=/^[ \t]*this\.\([A-Za-z0-9_$]\{1,\}\)[ \t]*=.*[{]$/\1/M,Method,Methods/b
 --regex-javascript=/^[ \t]*\([A-Za-z0-9_$]\{1,\}\)[ \t]*[:=][ \t]*[(]*function[ \t]*(/\1/M,Method,Methods/b
 --regex-javascript=/^[ \t]*static[ \t]\{1,\}\([A-Za-z0-9_$]\{1,\}\)[ \t]*(/\1/M,Method,Methods/b
---regex-javascript=/^[ \t]*\([A-Za-z0-9_$]\{1,\}\)(.*)[ \t]*[{]/\1/M,Method,Methods/b
+--regex-javascript=/^[ \t]*\([A-Za-z0-9_$]\{1,\}\)[ \t]*(.*)[ \t]*[{]/\1/M,Method,Methods/b
 
 --regex-javascript=/^[ \t]*\(this\.\)*\([A-Za-z0-9_$]\{1,\}\)[ \t]*[:=].*[,;]*[^{]$/\2/P,Property,Properties/b
 

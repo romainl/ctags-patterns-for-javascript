@@ -113,6 +113,9 @@ class ClassName {
 	class_meth_proto() {
 		return 2;
 	}
+	class_meth_es6 = (foo) => {
+		console.log(1);
+	}
 	if (foo) {
 		console.log(1);
 	}

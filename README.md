@@ -195,6 +195,7 @@ TODO:
 
     --regex-javascript=/^[ \t]*this\.\([A-Za-z0-9_$]\{1,\}\)[ \t]*=.*[{]$/\1/M,Method,Methods/b
     --regex-javascript=/^[ \t]*\([A-Za-z0-9_$]\{1,\}\)[ \t]*[:=][ \t]*[(]*function[ \t]*(/\1/M,Method,Methods/b
+    --regex-javascript=/^[ \t]*\([A-Za-z0-9_$]\{1,\}\)[ \t]*[=][ \t].\{1,\}=>/\1/M,Method,Methods/b
     --regex-javascript=/^[ \t]*static[ \t]\{1,\}\([A-Za-z0-9_$]\{1,\}\)[ \t]*(/\1/M,Method,Methods/b
     --regex-javascript=/^[ \t]*\([A-Za-z0-9_$]\{1,\}\)(.*)[ \t]*[{]/\1/M,Method,Methods/b
 
@@ -206,6 +207,8 @@ TODO:
     method_name : function() {...                       | method_name         | M
     static method_name() {...                           | method_name         | M
     method_name() {...                                  | method_name         | M
+    method_name = (param) => ...                        | method_name         | M
+    method_name = param => ...                          | method_name         | M
 
 ## Variables
 

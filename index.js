@@ -164,14 +164,18 @@ import * as imp36, * as imp37, * as imp38 // imp36, imp37, imp38
 import foo as imp39, bar as imp40, baz as imp41 // imp39, imp40, imp41
 import imp42, imp43, imp44
 
+
 // imports (flow)
 // --------------
-import type impFlow1 from "./ExportDefault_Class";
-import type {impFlow2} from "./ExportNamed_Class";
-import type {impFlow4, impFlow5} from "./ExportCJSNamed_Class";
-import typeof impFlow6 from "./ExportDefault_Class";
-import typeof {impFlow7 as impFlow8} from "./ExportNamed_Class"; // impFlow8
-import typeof * as impFlow9 from "./ExportNamed_Multi"; // impFlow9
+import type impFlow01 from "./ExportDefault_Class";
+import type {impFlow02} from "./ExportNamed_Class";
+import type {impFlow03, impFlow04} from "./ExportCJSNamed_Class";
+import type {impFlow05 as impFlow06} from "./ExportNamed_Class"; // impFlow6
+import type * as impFlow07 from "./ExportNamed_Multi"; // impFlow7
+import typeof impFlow08 from "./ExportDefault_Class";
+import typeof {impFlow09 as impFlow10} from "./ExportNamed_Class"; // impFlow10
+import typeof * as impFlow11 from "./ExportNamed_Multi"; // impFlow11
+
 
 // exports
 // -------

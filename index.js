@@ -166,12 +166,12 @@ import imp42, imp43, imp44
 
 // imports (flow)
 // --------------
-import type ClassFoo1 from "./ExportDefault_Class";
-import type {ClassFoo2} from "./ExportNamed_Class";
-import type {ClassFoo4, ClassFoo5} from "./ExportCJSNamed_Class";
-import typeof ClassFoo1T from "./ExportDefault_Class";
-import typeof {ClassFoo2 as ClassFoo2T} from "./ExportNamed_Class";
-import typeof * as ModuleNSObjT from "./ExportNamed_Multi";
+import type impFlow1 from "./ExportDefault_Class";
+import type {impFlow2} from "./ExportNamed_Class";
+import type {impFlow4, impFlow5} from "./ExportCJSNamed_Class";
+import typeof impFlow6 from "./ExportDefault_Class";
+import typeof {impFlow7 as impFlow8} from "./ExportNamed_Class"; // impFlow8
+import typeof * as impFlow9 from "./ExportNamed_Multi"; // impFlow9
 
 // exports
 // -------

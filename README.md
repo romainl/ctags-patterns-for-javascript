@@ -38,7 +38,7 @@ This is done to have a single source of patterns and avoid duplicated tags.
 
 1. In your shell, run the following command to tell Exuberant Ctags to use the options defined in this `.ctags` file:
 
-        $ echo "--options=path/to/ctags-patterns-for-javascript/.ctags" > ~/.ctags
+        $ echo "--options=path/to/ctags-patterns-for-javascript/.ctags" >> ~/.ctags
 
    with `path/to/ctags-patterns-for-javascript/.ctags` being your actual path, of course.
 

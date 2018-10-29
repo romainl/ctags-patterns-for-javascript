@@ -211,3 +211,14 @@ const foo -> export foo  as bar -> import bar at baz
 	tag const foo AND export foo as bar AND import bar as baz
 
 */
+
+// styled components
+// -----------------
+const FramedBox = styled(Box)`
+	border-radius: 0px 5pt 5pt 5pt;
+`;
+const GlobalStyle = createGlobalStyle`
+	body {
+		color: ${props => (props.whiteColor ? 'white' : 'black')};
+	}
+`;

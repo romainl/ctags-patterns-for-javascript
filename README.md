@@ -14,7 +14,8 @@ We want to make sure Exuberant Ctags doesn't miss a single named symbol in our w
 * [Methods](#methods),
 * [Variables](#variables),
 * [Named imports](#name-imports),
-* [Named exports](#named-exports)
+* [Named exports](#named-exports),
+* [Styled components](#styled-components)
 
 This is done by disabling the default "kinds", creating new ones, and crafting as many patterns as necessary.
 
@@ -316,6 +317,30 @@ Same story as imports, tagging direct exports would be redundant so we only tag 
     export default const exp28 = 1, exp29 = 2;          | exp28, exp29        | E
     export default var exp30 = 1, exp31 = 2;            | exp30, exp31        | E
     export default function exp32() {}                  | exp32               | E
+
+## Styled components
+
+"Visual primitives for the component age.", as they say [on the site](https://www.styled-components.com/), are not exactly native types but they are certainly named and very likely to be reused so they deserve a spot, here.
+
+### Patterns
+
+    --regex-javascript=/^[ \t]*var[ \t]\{1,\}\([A-Za-z0-9_$]\{1,\}\)[ \t]*=[ \t]*styled/\1/S,StyledComponent,StyledComponents/b
+    --regex-javascript=/^[ \t]*let[ \t]\{1,\}\([A-Za-z0-9_$]\{1,\}\)[ \t]*=[ \t]*styled/\1/S,StyledComponent,StyledComponents/b
+    --regex-javascript=/^[ \t]*const[ \t]\{1,\}\([A-Za-z0-9_$]\{1,\}\)[ \t]*=[ \t]*styled/\1/S,StyledComponent,StyledComponents/b
+    --regex-javascript=/^[ \t]*var[ \t]\{1,\}\([A-Za-z0-9_$]\{1,\}\)[ \t]*=[ \t]*createGlobalStyle/\1/S,StyledComponent,StyledComponents/b
+    --regex-javascript=/^[ \t]*let[ \t]\{1,\}\([A-Za-z0-9_$]\{1,\}\)[ \t]*=[ \t]*createGlobalStyle/\1/S,StyledComponent,StyledComponents/b
+    --regex-javascript=/^[ \t]*const[ \t]\{1,\}\([A-Za-z0-9_$]\{1,\}\)[ \t]*=[ \t]*createGlobalStyle/\1/S,StyledComponent,StyledComponents/b
+
+### Support
+
+    CODE                                                | TAG                 | KIND
+    ----------------------------------------------------|---------------------|-----
+    var Comp01 = styled...                              | Comp01              | S
+    let Comp02 = styled...                              | Comp02              | S
+    const Comp03 = styled...                            | Comp03              | S
+    var Comp04 = createGlobalStyle...                   | Comp04              | S
+    let Comp05 = createGlobalStyle...                   | Comp05              | S
+    const Comp05 = createGlobalStyle...                 | Comp06              | S
 
 ## Hack
 

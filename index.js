@@ -214,10 +214,26 @@ const foo -> export foo  as bar -> import bar at baz
 
 // styled components
 // -----------------
-const FramedBox = styled(Box)`
+var Comp01 = styled(Box)`
 	border-radius: 0px 5pt 5pt 5pt;
 `;
-const GlobalStyle = createGlobalStyle`
+let Comp02 = styled(Box)`
+	border-radius: 0px 5pt 5pt 5pt;
+`;
+const Comp03 = styled(Box)`
+	border-radius: 0px 5pt 5pt 5pt;
+`;
+var Comp04 = createGlobalStyle`
+	body {
+		color: ${props => (props.whiteColor ? 'white' : 'black')};
+	}
+`;
+let Comp05 = createGlobalStyle`
+	body {
+		color: ${props => (props.whiteColor ? 'white' : 'black')};
+	}
+`;
+const Comp06 = createGlobalStyle`
 	body {
 		color: ${props => (props.whiteColor ? 'white' : 'black')};
 	}

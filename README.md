@@ -38,7 +38,9 @@ This is done to have a single source of patterns and avoid duplicated tags.
         $ cd ~/my/cool/stuff
         $ git clone https://github.com/romainl/ctags-patterns-for-javascript.git
 
-2. Build a `tags` file:
+2. Make sure you don't have a `~/.ctags` file.
+
+3. Build a `tags` file against the provided `index.js`:
 
         $ cd ~/my/cool/stuff/ctags-patterns-for-javascript
         $ make tags
@@ -372,13 +374,13 @@ But we are hackers, right?
 
 ### Watch and re-index
 
-The bundled `Makefile` has a very simple `watch` phony target that will run `make tags` every second. In turn, the `tags` target will run `ctags -f tags index.js` only if `.ctags` or `index.js` have changed since last run.
+The bundled `Makefile` has a very simple and very cheap `watch` phony target that will run `make tags` every second. In turn, the `tags` target will run `ctags --options=./ctags -f tags index.js` *only* if `ctags` or `index.js` have changed since last run.
 
 This allows us to start the watcher in a terminal:
 
     $ make watch
 
-open `.ctags`, `index.js`, and the `tags` file:
+open `.ctags`, `index.js`, and the `tags` file in Vim in another terminal:
 
     $ vim -O tags ctags index.js +'set autoread' +'autocmd! CursorHold,CursorHoldI * checktime'
 

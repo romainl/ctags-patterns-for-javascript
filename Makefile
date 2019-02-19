@@ -7,7 +7,7 @@ all: tags
 	@true
 
 tags: ctags index.js
-	@ctags -f tags index.js
+	@ctags --options=./ctags -f tags index.js
 	$(OUT) "'tags' file updated."
 
 watch:

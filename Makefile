@@ -6,7 +6,7 @@ OUT = @echo `date +[\ %F\ -\ %T\ ]`
 all: tags
 	@true
 
-tags: .ctags index.js
+tags: ctags index.js
 	@ctags -f tags index.js
 	$(OUT) "'tags' file updated."
 

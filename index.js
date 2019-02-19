@@ -21,14 +21,44 @@ let arr_lit_inline = [1,4];
 // objects
 // -------
 var obj_lit = {
-	obj_lit_prop_foo: 123,
-	obj_lit_prop_bar : "eee",
-	obj_lit_prop_method : function(){
+	obj_lit_prop_number: 123,
+	obj_lit_prop_string : "eee",
+	obj_lit_prop_array: [
+		"foo"
+	],
+	obj_lit_prop_object : {
+		inner_prop: bar
+	},
+	obj_lit_prop_regexp : /regexp/,
+	obj_lit_prop_method : function(
+		arg1,
+		arg2
+	){
 		return this;
 	},
-	obj_lit_prop_qux : /regexp/
+	obj_lit_prop_method_arrow : (
+		arg1,
+		arg2
+	) => {
+		console.log(1);
+	}
 };
-var obj_lit_inline = { prop_baz: 1 };
+var obj_lit_inline = { obj_lit_inline_prop: 1 };
+this.this_prop = {
+	this_inner_prop: "bar"
+};
+this.this_prop_method = function(
+	arg1,
+	arg2
+){
+	return this;
+}
+this.this_prop_method_arrow = (
+	arg1,
+	arg2
+) => {
+	console.log(1);
+};
 
 
 // constructors & methods
@@ -62,6 +92,13 @@ const function_const = function() {
 	return 3;
 };
 const function_arrow = (arg) => arg;
+const function_arrow_no_parentheses = arg => arg;
+var function_arrow_multiline = (
+	foo,
+	bar
+) => {
+	return 1;
+};
 
 
 // generators
@@ -102,11 +139,23 @@ const generator_func6 = function * () {
 // -------
 class ClassName {
 	constructor(prop) {
-		this.cl_constr_prop = prop;
-		this.cl_constr_meth = function(){
+		this.class_constr_prop = prop;
+		this.class_constr_meth = function(){
 			return 666;
 		};
 	}
+	class_meth_equal = function(
+		arg1,
+		arg2
+	) {
+		return this;
+	};
+	class_meth_equal_arrow = (
+		arg1,
+		arg2
+	) => {
+		console.log(1);
+	};
 	static class_meth_static() {
 		return 1;
 	}

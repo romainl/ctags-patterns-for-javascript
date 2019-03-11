@@ -380,7 +380,7 @@ This allows us to start the watcher in a terminal:
 
     $ make watch
 
-open `.ctags`, `index.js`, and the `tags` file in Vim in another terminal:
+open `ctags`, `index.js`, and the `tags` file in Vim in another terminal:
 
     $ vim -O tags ctags index.js +'set autoread' +'autocmd! CursorHold,CursorHoldI * checktime'
 

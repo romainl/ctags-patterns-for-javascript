@@ -6,8 +6,8 @@ OUT = @echo `date +[\ %F\ -\ %T\ ]`
 all: tags
 	@true
 
-tags: ctags index.js
-	@ctags --options=./ctags -f tags index.js
+tags: ctagsrc index.js
+	@ctags --options=./ctagsrc -f tags index.js
 	$(OUT) "'tags' file updated."
 
 watch:

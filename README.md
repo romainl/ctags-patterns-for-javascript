@@ -25,9 +25,9 @@ These patterns are only usable with Exuberant Ctags. Universal Ctags is *not* cu
 
 Note about disabling the default "kinds".
 
-The option `--javascript-kinds=-c-f-m-p-v` in [ctags](ctags) will disable the default kinds, `c` (classes), `f` (functions), `m` (methods), `p` (properties), and `v` (global variables), for JavaScript files.
+The option `--javascript-kinds=-c-f-m-p-v` in [ctagsrc](ctagsrc) will disable the default kinds, `c` (classes), `f` (functions), `m` (methods), `p` (properties), and `v` (global variables), for JavaScript files.
 
-This means your ctags program's builtin regex patterns or any user defined patterns registered against these kinds will no longer function and the patterns defined in [ctags](ctags) will be the only patterns active for the JavaScript language.
+This means your ctags program's builtin regex patterns or any user defined patterns registered against these kinds will no longer function and the patterns defined in [ctagsrc](ctagsrc) will be the only patterns active for the JavaScript language.
 
 This is done to have a single source of patterns and avoid duplicated tags.
 
@@ -52,17 +52,17 @@ This is done to have a single source of patterns and avoid duplicated tags.
         $ cd ~/my/cool/stuff
         $ git clone https://github.com/romainl/ctags-patterns-for-javascript.git
 
-2. In your shell, run the following command to tell Exuberant Ctags to use the options defined in the provided `ctags` file:
+2. In your shell, run the following command to tell Exuberant Ctags to use the options defined in the provided `ctagsrc` file:
 
-        $ echo "--options=~/my/cool/stuff/ctags-patterns-for-javascript/ctags" >> ~/.ctags
+        $ echo "--options=~/my/cool/stuff/ctags-patterns-for-javascript/ctagsrc" >> ~/.ctags
 
-   with `~/my/cool/stuff/ctags-patterns-for-javascript/ctags` being your actual path, of course.
+   with `~/my/cool/stuff/ctags-patterns-for-javascript/ctagsrc` being your actual path, of course.
 
 3. Use this command to generate a `tags` file at the root of your JavaScript project:
 
         $ ctags -R .
 
-If for some reason the above instructions sound like Klingon to you, just copy the content of [this file](https://raw.githubusercontent.com/romainl/ctags-patterns-for-javascript/master/ctags) and paste it *into* your own `~/.ctags` file. If that file doesn't exist, create it.
+If for some reason the above instructions sound like Klingon to you, just copy the content of [this file](https://raw.githubusercontent.com/romainl/ctags-patterns-for-javascript/master/ctagsrc) and paste it *into* your own `~/.ctags` file. If that file doesn't exist, create it.
 
 ## Tags
 
@@ -374,17 +374,17 @@ But we are hackers, right?
 
 ### Watch and re-index
 
-The bundled `Makefile` has a very simple and very cheap `watch` phony target that will run `make tags` every second. In turn, the `tags` target will run `ctags --options=./ctags -f tags index.js` *only* if `ctags` or `index.js` have changed since last run.
+The bundled `Makefile` has a very simple and very cheap `watch` phony target that will run `make tags` every second. In turn, the `tags` target will run `ctags --options=./ctagsrc -f tags index.js` *only* if `ctagsrc` or `index.js` have changed since last run.
 
 This allows us to start the watcher in a terminal:
 
     $ make watch
 
-open `ctags`, `index.js`, and the `tags` file in Vim in another terminal:
+open `ctagsrc`, `index.js`, and the `tags` file in Vim in another terminal:
 
-    $ vim -O tags ctags index.js +'set autoread' +'autocmd! CursorHold,CursorHoldI * checktime'
+    $ vim -O tags ctagsrc index.js +'set autoread' +'autocmd! CursorHold,CursorHoldI * checktime'
 
-and watch our `tags` file change as we edit existing patterns in `ctags` or add expressions in `index.js`.
+and watch our `tags` file change as we edit existing patterns in `ctagsrc` or add expressions in `index.js`.
 
 
 [//]: # ( Vim: set spell spelllang=en: )

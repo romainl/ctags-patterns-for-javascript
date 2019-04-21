@@ -178,6 +178,7 @@ TODO:
     --regex-javascript=/^[ \t]*var[ \t]\{1,\}\([a-z][A-Za-z0-9_$]\{1,\}\)[ \t]*=[ \t]*([^\*]/\1/F,Function,Functions/b
     --regex-javascript=/^[ \t]*let[ \t]\{1,\}\([a-z][A-Za-z0-9_$]\{1,\}\)[ \t]*=[ \t]*([^\*]/\1/F,Function,Functions/b
     --regex-javascript=/^[ \t]*const[ \t]\{1,\}\([a-z][A-Za-z0-9_$]\{1,\}\)[ \t]*=[ \t]*([^\*]/\1/F,Function,Functions/b
+    --regex-javascript=/^[ \t]*module\.exports[ \t]*=[ \t]*function[ \t]\{1,\}\([a-z][A-Za-z0-9_$]\{1,\}\)/\1/F,Function,Functions/b
 
 ### Support
 
@@ -188,6 +189,7 @@ TODO:
     var func_name = function() {...                     | func_name           | F
     let func_name = function() {...                     | func_name           | F
     const func_name = function() {...                   | func_name           | F
+    module.exports = function func_name() {...          | func_name           | F
 
 
 ## Constructors and classes

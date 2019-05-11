@@ -54,7 +54,7 @@ This is done to have a single source of patterns and avoid duplicated tags.
 
 2. In your shell, run the following command to tell Exuberant Ctags to use the options defined in the provided `ctagsrc` file:
 
-        $ echo "--options=~/my/cool/stuff/ctags-patterns-for-javascript/ctagsrc" >> ~/.ctags
+        $ echo "--options=/Users/me/my/cool/stuff/ctags-patterns-for-javascript/ctagsrc" >> ~/.ctags
 
    with `~/my/cool/stuff/ctags-patterns-for-javascript/ctagsrc` being your actual path, of course.
 

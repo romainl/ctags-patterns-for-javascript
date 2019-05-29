@@ -101,6 +101,16 @@ var function_arrow_multiline = (
 };
 
 
+// async
+// -----
+async function function_async_basic() {
+	return 1;
+}
+(async function function_async_iife() {
+	return 2;
+})();
+
+
 // generators
 // ----------
 function* generator_func1() {

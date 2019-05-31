@@ -248,10 +248,15 @@ TODO:
     let var_name = 'foo';                               | var_name            | V
     let var_name = "bar";                               | var_name            | V
     let var_name = new ClassName();                     | var_name            | V
+    var var_name;                                       | var_name            | V
+    var foo, var_name;                                  | var_name            | V
+    var foo, bar, var_name;                             | var_name            | V
+    let var_name;                                       | var_name            | V
+    let foo, var_name;                                  | var_name            | V
+    let foo, bar, var_name;                             | var_name            | V
 
 TODO:
 
-* `var foo, bar, baz;`
 * Special kinds for special types (RegExp, Math, Map, etc.)?
 
 ## Named imports

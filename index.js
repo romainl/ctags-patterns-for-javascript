@@ -193,11 +193,15 @@ class ClassName {
 // ---------
 const var_const_number = 1;
 var var_var_regexp = /regexp/;
-let var_let_single_quotes = 'foo';
-let var_let_double_quotes = "bar";
+let let_single_quotes = 'foo';
+let let_double_quotes = "bar";
 var var_class_instance = new ClassName();
 let let_class_instance = new ClassName();
 const const_class_instance = new ClassName();
+var var_declaration;
+let let_declaration;
+var var_declaration_inlined_1, var_declaration_inlined_2;
+let let_declaration_inlined_1, let_declaration_inlined_2;
 
 
 // imports

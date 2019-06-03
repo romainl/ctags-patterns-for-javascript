@@ -200,8 +200,10 @@ let let_class_instance = new ClassName();
 const const_class_instance = new ClassName();
 var var_declaration;
 let let_declaration;
-var var_declaration_inlined_1, var_declaration_inlined_2;
-let let_declaration_inlined_1, let_declaration_inlined_2;
+var var_declaration_inlined_1_of_2, var_declaration_inlined_2_of_2;
+let let_declaration_inlined_1_of_2, let_declaration_inlined_2_of_2;
+var var_declaration_inlined_1_of_3, var_declaration_inlined_2_of_3, var_declaration_inlined_3_of_3;
+let let_declaration_inlined_1_of_3, let_declaration_inlined_2_of_3, let_declaration_inlined_3_of_3;
 
 
 // imports

@@ -204,6 +204,12 @@ var var_declaration_inlined_1_of_2, var_declaration_inlined_2_of_2;
 let let_declaration_inlined_1_of_2, let_declaration_inlined_2_of_2;
 var var_declaration_inlined_1_of_3, var_declaration_inlined_2_of_3, var_declaration_inlined_3_of_3;
 let let_declaration_inlined_1_of_3, let_declaration_inlined_2_of_3, let_declaration_inlined_3_of_3;
+var var_declaration_trailing_space ;
+let let_declaration_trailing_space ;
+var var_declaration_inlined_1_of_2_trailing_space , var_declaration_inlined_2_of_2_trailing_space ;
+let let_declaration_inlined_1_of_2_trailing_space , let_declaration_inlined_2_of_2_trailing_space ;
+var var_declaration_inlined_1_of_3_trailing_space , var_declaration_inlined_2_of_3_trailing_space , var_declaration_inlined_3_of_3_trailing_space ;
+let let_declaration_inlined_1_of_3_trailing_space , let_declaration_inlined_2_of_3_trailing_space , let_declaration_inlined_3_of_3_trailing_space ;
 
 
 // imports

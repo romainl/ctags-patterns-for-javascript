@@ -99,6 +99,9 @@ var function_arrow_multiline = (
 ) => {
 	return 1;
 };
+module.exports = function mod_exports_func() {
+	return 4;
+};
 
 
 // async

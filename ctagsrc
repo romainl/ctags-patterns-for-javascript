@@ -115,12 +115,14 @@
 
 --exclude=min
 --exclude=vendor
---exclude=\*.min.\*
---exclude=\*.map
---exclude=\*.swp
---exclude=\*.bak
+--exclude=*.min.*
+--exclude=.map
+--exclude=.swp
+--exclude=.bak
 --exclude=tags
 --exclude=node_modules
 --exclude=bower_components
 --exclude=test
 --exclude=tests
+--exclude=*.spec.*
+--exclude=*.stories.*

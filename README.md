@@ -56,9 +56,9 @@ This is done to have a single source of patterns and avoid duplicated tags.
 
 2. In your shell, run the following command to tell Exuberant Ctags to use the options defined in the provided `ctagsrc` file:
 
-        $ echo "--options=$HOME/my/cool/stuff/ctags-patterns-for-javascript/ctagsrc" >> ~/.ctags
+        $ echo "--options=/absolute/path/to/my/cool/stuff/ctags-patterns-for-javascript/ctagsrc" >> ~/.ctags
 
-   with `$HOME/my/cool/stuff/ctags-patterns-for-javascript/ctagsrc` being your actual path, of course.
+   with `/absolute/path/to/my/cool/stuff/ctags-patterns-for-javascript/ctagsrc` being your actual path, of course.
 
 3. Use this command to generate a `tags` file at the root of your JavaScript project:
 

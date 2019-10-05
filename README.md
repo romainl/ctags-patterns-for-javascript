@@ -219,7 +219,7 @@ Same story as imports, tagging direct exports would be redundant so we only tag 
     CODE                                                | TAG                 | KIND
     ----------------------------------------------------|---------------------|-----
     var|let|const Component = styled...                 | Component           | S
-    var|let|const Component = createGlobalStyle...     | Component           | S
+    var|let|const Component = createGlobalStyle...      | Component           | S
 
 ## Hack
 

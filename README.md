@@ -37,28 +37,25 @@ This is done to have a single source of patterns and avoid duplicated tags.
 
 1. Clone this repository:
 
-        $ cd ~/my/cool/stuff
         $ git clone https://github.com/romainl/ctags-patterns-for-javascript.git
 
 2. Make sure you don't have a `~/.ctags` file.
 
 3. Build a `tags` file against the provided `index.js`:
 
-        $ cd ~/my/cool/stuff/ctags-patterns-for-javascript
         $ make tags
 
 ## Use
 
 1. Clone this repository:
 
-        $ cd ~/my/cool/stuff
         $ git clone https://github.com/romainl/ctags-patterns-for-javascript.git
 
 2. In your shell, run the following command to tell Exuberant Ctags to use the options defined in the provided `ctagsrc` file:
 
-        $ echo "--options=/absolute/path/to/my/cool/stuff/ctags-patterns-for-javascript/ctagsrc" >> ~/.ctags
+        $ echo "--options=/absolute/path/to/ctags-patterns-for-javascript/ctagsrc" >> ~/.ctags
 
-   with `/absolute/path/to/my/cool/stuff/ctags-patterns-for-javascript/ctagsrc` being your actual path, of course.
+   with `/absolute/path/to/ctags-patterns-for-javascript/ctagsrc` being your actual path, of course.
 
 3. Use this command to generate a `tags` file at the root of your JavaScript project:
 

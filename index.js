@@ -109,6 +109,33 @@ async function function_async_basic() {
 (async function function_async_iife() {
 	return 2;
 })();
+let function_async_let = async function() {
+	return 1;
+}
+const function_async_var = async function() {
+	return 1;
+}
+var function_async_const = async function() {
+	return 1;
+}
+let function_async_let_arrow = async () => {
+	return 1;
+}
+const function_async_var_arrow = async () => {
+	return 1;
+}
+var function_async_const_arrow = async () => {
+	return 1;
+}
+let function_async_let_arrow_no_parens = async arg => {
+	return 1;
+}
+const function_async_var_arrow_no_parens = async arg => {
+	return 1;
+}
+var function_async_const_arrow_no_parens = async arg => {
+	return 1;
+}
 
 
 // generators

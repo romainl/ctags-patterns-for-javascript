@@ -100,9 +100,7 @@ If for some reason the above instructions sound like Klingon to you, just copy t
 
     CODE                                                | TAG                 | KIND
     ----------------------------------------------------|---------------------|-----
-    let array_name = [...                               | array_name          | A
-    var array_name = [...                               | array_name          | A
-    const array_name = [...                             | array_name          | A
+    var|let|const array_name = [...                     | array_name          | A
 
 ## Object literals
 
@@ -116,9 +114,7 @@ If for some reason the above instructions sound like Klingon to you, just copy t
 
     CODE                                                | TAG                 | KIND
     ----------------------------------------------------|---------------------|-----
-    let object_name = {...                              | object_name         | O
-    var object_name = {...                              | object_name         | O
-    const object_name = {...                            | object_name         | O
+    var|let|const object_name = {...                    | object_name         | O
 
 ## Object properties
 
@@ -192,13 +188,15 @@ If for some reason the above instructions sound like Klingon to you, just copy t
     ----------------------------------------------------|---------------------|-----
     function func_name() {...                           | func_name           | F
     (function func_name() {...                          | func_name           | F
-    var func_name = function() {...                     | func_name           | F
-    let func_name = function() {...                     | func_name           | F
-    const func_name = function() {...                   | func_name           | F
-    const function_name = (arg) => ...                  | func_name           | F
-    const function_name = arg => ...                    | func_name           | F
-    var function_name = (\n...) => ...                  | func_name           | F
-
+    var|let|const func_name = function() {...           | func_name           | F
+    var|let|const function_name = (arg) => ...          | func_name           | F
+    var|let|const function_name = arg => ...            | func_name           | F
+    var|let|const function_name = (\n...) => ...        | func_name           | F
+    async function function_name() {...                 | func_name           | F
+    (async function function_name() {...                | func_name           | F
+    var|let|const function_name = async function() {... | func_name           | F
+    var|let|const function_name = async () => {...      | func_name           | F
+    var|let|const function_name = async arg => {...     | func_name           | F
 
 
 ## Constructors and classes
@@ -215,7 +213,7 @@ If for some reason the above instructions sound like Klingon to you, just copy t
     CODE                                                | TAG                 | KIND
     ----------------------------------------------------|---------------------|-----
     class ClassName {...                                | ClassName           | C
-    var Constructor = function() {...                   | Constructor         | C
+    var|let|const Constructor = function() {...         | Constructor         | C
 
 
 ## Methods
@@ -265,17 +263,14 @@ If for some reason the above instructions sound like Klingon to you, just copy t
 
     CODE                                                | TAG                 | KIND
     ----------------------------------------------------|---------------------|-----
-    const var_name = 1;                                 | var_name            | V
-    var var_name = /regexp/;                            | var_name            | V
-    let var_name = 'foo';                               | var_name            | V
-    let var_name = "bar";                               | var_name            | V
-    let var_name = new ClassName();                     | var_name            | V
-    var var_name;                                       | var_name            | V
-    var foo, var_name;                                  | var_name            | V
-    var foo, bar, var_name;                             | var_name            | V
-    let var_name;                                       | var_name            | V
-    let foo, var_name;                                  | var_name            | V
-    let foo, bar, var_name;                             | var_name            | V
+    var|let|const var_name = 1;                         | var_name            | V
+    var|let|const var_name = /regexp/;                  | var_name            | V
+    var|let|const var_name = 'foo';                     | var_name            | V
+    var|let|const var_name = "bar";                     | var_name            | V
+    var|let|const var_name = new ClassName();           | var_name            | V
+    var|let|const var_name;                             | var_name            | V
+    var|let|const ..., var_name;                        | var_name            | V
+    var|let|const ..., ..., var_name;                   | var_name            | V
 
 TODO:
 
@@ -382,12 +377,8 @@ Same story as imports, tagging direct exports would be redundant so we only tag 
 
     CODE                                                | TAG                 | KIND
     ----------------------------------------------------|---------------------|-----
-    var Comp01 = styled...                              | Comp01              | S
-    let Comp02 = styled...                              | Comp02              | S
-    const Comp03 = styled...                            | Comp03              | S
-    var Comp04 = createGlobalStyle...                   | Comp04              | S
-    let Comp05 = createGlobalStyle...                   | Comp05              | S
-    const Comp05 = createGlobalStyle...                 | Comp06              | S
+    var|let|const Component = styled...                 | Component           | S
+    vari|let|const Component = createGlobalStyle...     | Component           | S
 
 ## Hack
 

@@ -42,9 +42,9 @@
 --regex-javascript=/^[ \t]*[(]function[ \t]*\([A-Za-z0-9_$]\{1,\}\)[ \t(]/\1/F,Function,Functions/b
 --regex-javascript=/^[ \t]*async[ \t]function[ \t]*\([A-Za-z0-9_$]\{1,\}\)[ \t(]/\1/F,Function,Functions/b
 --regex-javascript=/^[ \t]*[(]async[ \t]function[ \t]*\([A-Za-z0-9_$]\{1,\}\)[ \t(]/\1/F,Function,Functions/b
---regex-javascript=/^[ \t]*var[ \t]\{1,\}\([a-z][A-Za-z0-9_$]\{1,\}\)[ \t]*=[ \t]*function[^\*][^\*]/\1/F,Function,Functions/b
---regex-javascript=/^[ \t]*let[ \t]\{1,\}\([a-z][A-Za-z0-9_$]\{1,\}\)[ \t]*=[ \t]*function[^\*][^\*]/\1/F,Function,Functions/b
---regex-javascript=/^[ \t]*const[ \t]\{1,\}\([a-z][A-Za-z0-9_$]\{1,\}\)[ \t]*=[ \t]*function[^\*][^\*]/\1/F,Function,Functions/b
+--regex-javascript=/^[ \t]*var[ \t]\{1,\}\([a-z][A-Za-z0-9_$]\{1,\}\)[ \t]*=[ \t]*\(async[ \t]\{1,\}\)*function[^\*][^\*]/\1/F,Function,Functions/b
+--regex-javascript=/^[ \t]*let[ \t]\{1,\}\([a-z][A-Za-z0-9_$]\{1,\}\)[ \t]*=[ \t]*\(async[ \t]\{1,\}\)*function[^\*][^\*]/\1/F,Function,Functions/b
+--regex-javascript=/^[ \t]*const[ \t]\{1,\}\([a-z][A-Za-z0-9_$]\{1,\}\)[ \t]*=[ \t]*\(async[ \t]\{1,\}\)*function[^\*][^\*]/\1/F,Function,Functions/b
 --regex-javascript=/^[ \t]*var[ \t]\{1,\}\([a-z][A-Za-z0-9_$]\{1,\}\)[ \t]*=[ \t]*([^)]*$/\1/F,Function,Functions/b
 --regex-javascript=/^[ \t]*let[ \t]\{1,\}\([a-z][A-Za-z0-9_$]\{1,\}\)[ \t]*=[ \t]*([^)]*$/\1/F,Function,Functions/b
 --regex-javascript=/^[ \t]*const[ \t]\{1,\}\([a-z][A-Za-z0-9_$]\{1,\}\)[ \t]*=[ \t]*([^)]*$/\1/F,Function,Functions/b

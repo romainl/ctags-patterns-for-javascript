@@ -117,8 +117,6 @@ If for some reason the above instructions sound like Klingon to you, just copy t
 
 ## Free-form functions
 
-### Patterns
-
     CODE                                                | TAG                 | KIND
     ----------------------------------------------------|---------------------|-----
     function func_name() {...                           | func_name           | F
@@ -221,7 +219,7 @@ Same story as imports, tagging direct exports would be redundant so we only tag 
     CODE                                                | TAG                 | KIND
     ----------------------------------------------------|---------------------|-----
     var|let|const Component = styled...                 | Component           | S
-    vari|let|const Component = createGlobalStyle...     | Component           | S
+    var|let|const Component = createGlobalStyle...     | Component           | S
 
 ## Hack
 

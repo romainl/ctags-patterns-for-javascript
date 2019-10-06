@@ -218,60 +218,188 @@ class ClassName {
 
 // variables
 // ---------
-var var_var_number = 1;
-let var_let_number = 1;
-const var_const_number = 1;
+/*
+should match:
+	var_number
+	let_number
+	const_number
+*/
+var var_number = 1;
+let let_number = 1;
+const const_number = 1;
 
-var var_var_typed_number:number = 1;
-let var_let_typed_number:number = 1;
-const var_const_typed_number:number = 1;
+/*
+should match:
+	var_typed_number
+	let_typed_number
+	const_typed_number
+*/
+var var_typed_number:number = 1;
+let let_typed_number:number = 1;
+const const_typed_number:number = 1;
 
-var var_var_typed_boolean: boolean = 1;
-let var_let_typed_boolean: boolean = 1;
-const var_const_typed_boolean: boolean = 1;
+/*
+should match:
+	var_typed_boolean
+	let_typed_boolean
+	const_typed_boolean
+*/
+var var_typed_boolean: boolean = 1;
+let let_typed_boolean: boolean = 1;
+const const_typed_boolean: boolean = 1;
 
-var var_var_typed_any :any = 1;
-let var_let_typed_any :any = 1;
-const var_const_typed_any :any = 1;
+/*
+should match:
+	var_typed_any
+	let_typed_any
+	const_typed_any
+*/
+var var_typed_any :any = 1;
+let let_typed_any :any = 1;
+const const_typed_any :any = 1;
 
-var var_var_typed_null : null = 1;
-let var_let_typed_null : null = 1;
-const var_const_typed_null : null = 1;
+/*
+should match:
+	var_typed_null
+	let_typed_null
+	const_typed_null
+*/
+var var_typed_null : null = 1;
+let let_typed_null : null = 1;
+const const_typed_null : null = 1;
 
-var var_var_regexp = /regexp/;
+var var_regexp = /regexp/;
+var var_regexp_typed: any = /regexp/;
+
 let let_single_quotes = 'foo';
-let let_double_quotes = "bar";
-var var_class_instance = new ClassName();
-let let_class_instance = new ClassName();
-const const_class_instance = new ClassName();
+let let_single_quotes_typed: string = 'foo';
 
+let let_double_quotes = "bar";
+let let_double_quotes_typed: string = "bar";
+
+let let_backticks = `bar`;
+let let_backticks_typed: string = `bar`;
+
+const const_class_instance = new ClassName();
+const const_class_instance_typed :ClassName = new ClassName();
+
+/*
+should match:
+	var_decl
+	let_decl
+*/
 var var_decl;
 let let_decl;
+
+/*
+should match:
+	var_decl_typed
+	let_decl_typed
+*/
 var var_decl_typed: boolean;
 let let_decl_typed: boolean;
 
+/*
+should match:
+	var_decl_inlined_1_of_2
+	var_decl_inlined_2_of_2
+	let_decl_inlined_1_of_2
+	let_decl_inlined_2_of_2
+*/
 var var_decl_inlined_1_of_2, var_decl_inlined_2_of_2;
 let let_decl_inlined_1_of_2, let_decl_inlined_2_of_2;
+
+/*
+should match:
+	var_decl_inlined_1_of_2_typed
+	var_decl_inlined_2_of_2_typed
+	let_decl_inlined_1_of_2_typed
+	let_decl_inlined_2_of_2_typed
+*/
 var var_decl_inlined_1_of_2_typed:number, var_decl_inlined_2_of_2_typed: boolean;
 let let_decl_inlined_1_of_2_typed : number, let_decl_inlined_2_of_2_typed : boolean;
 
+/*
+should match:
+	var_decl_inlined_1_of_3
+	var_decl_inlined_2_of_3
+	var_decl_inlined_3_of_3
+	let_decl_inlined_1_of_3
+	let_decl_inlined_2_of_3
+	let_decl_inlined_3_of_3
+*/
 var var_decl_inlined_1_of_3, var_decl_inlined_2_of_3, var_decl_inlined_3_of_3;
 let let_decl_inlined_1_of_3, let_decl_inlined_2_of_3, let_decl_inlined_3_of_3;
+
+/*
+should match:
+	var_decl_inlined_1_of_3_typed
+	var_decl_inlined_2_of_3_typed
+	var_decl_inlined_3_of_3_typed
+	let_decl_inlined_1_of_3_typed
+	let_decl_inlined_2_of_3_typed
+	let_decl_inlined_3_of_3_typed
+*/
 var var_decl_inlined_1_of_3_typed: number, var_decl_inlined_2_of_3_typed: number, var_decl_inlined_3_of_3_typed: number;
 let let_decl_inlined_1_of_3_typed: number, let_decl_inlined_2_of_3_typed: number, let_decl_inlined_3_of_3_typed: number;
 
+/*
+should match:
+	var_decl_trail
+	let_decl_trail
+*/
 var var_decl_trail ;
 let let_decl_trail ;
+
+/*
+should match:
+	var_decl_trail_typed
+	let_decl_trail_typed
+*/
 var var_decl_trail_typed: boolean ;
 let let_decl_trail_typed: boolean ;
 
+/*
+should match:
+	var_decl_inlined_1_of_2_trail
+	var_decl_inlined_2_of_2_trail
+	let_decl_inlined_1_of_2_trail
+	let_decl_inlined_2_of_2_trail
+*/
 var var_decl_inlined_1_of_2_trail , var_decl_inlined_2_of_2_trail ;
 let let_decl_inlined_1_of_2_trail , let_decl_inlined_2_of_2_trail ;
+
+/*
+should match:
+	var_decl_inlined_1_of_2_trail_typed
+	var_decl_inlined_2_of_2_trail_typed
+	let_decl_inlined_1_of_2_trail_typed
+	let_decl_inlined_2_of_2_trail_typed
+*/
 var var_decl_inlined_1_of_2_trail_typed: boolean , var_decl_inlined_2_of_2_trail_typed: boolean ;
 let let_decl_inlined_1_of_2_trail_typed: boolean , let_decl_inlined_2_of_2_trail_typed: boolean ;
 
+/*
+should match:
+	var_decl_inlined_1_of_3_trail
+	var_decl_inlined_2_of_3_trail
+	var_decl_inlined_3_of_3_trail
+	let_decl_inlined_1_of_3_trail
+	let_decl_inlined_2_of_3_trail
+	let_decl_inlined_3_of_3_trail
+*/
 var var_decl_inlined_1_of_3_trail , var_decl_inlined_2_of_3_trail , var_decl_inlined_3_of_3_trail ;
 let let_decl_inlined_1_of_3_trail , let_decl_inlined_2_of_3_trail , let_decl_inlined_3_of_3_trail ;
+
+/*
+should match:
+	var_decl_inlined_1_of_3_trail_typed
+	var_decl_inlined_2_of_3_trail_typed
+	var_decl_inlined_3_of_3_trail_typed
+	let_decl_inlined_1_of_3_trail_typed
+	let_decl_inlined_2_of_3_trail_typed
+	let_decl_inlined_3_of_3_trail_typed
+*/
 var var_decl_inlined_1_of_3_trail_typed: boolean , var_decl_inlined_2_of_3_trail_typed: boolean , var_decl_inlined_3_of_3_trail_typed: boolean ;
 let let_decl_inlined_1_of_3_trail_typed: boolean , let_decl_inlined_2_of_3_trail_typed: boolean , let_decl_inlined_3_of_3_trail_typed: boolean ;
 

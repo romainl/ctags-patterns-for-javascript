@@ -181,27 +181,50 @@ class ClassName {
 			return 666;
 		};
 	}
+
 	class_meth_equal = function(
 		arg1,
 		arg2
 	) {
 		return this;
 	};
-	class_meth_equal_arrow = (
-		arg1,
-		arg2
-	) => {
+	static class_meth_equal_static = function() {};
+	public class_meth_equal_public = function() {};
+	private class_meth_equal_private = function() {};
+	protected class_meth_equal_protected = function() {};
+
+	class_meth_equal_arrow = (foo) => {
 		console.log(1);
-	};
-	static class_meth_static() {
+	}
+	static class_meth_equal_arrow_static = (foo) => {}
+	public class_meth_equal_arrow_public = (foo) => {}
+	private class_meth_equal_arrow_private = (foo) => {}
+	protected class_meth_equal_arrow_protected = (foo) => {}
+
+	class_meth_equal_arrow_multi = (
+		arg1,
+	) => { console.log(1); };
+	static class_meth_equal_arrow_multi_static = (
+		arg1,
+	) => { console.log(1); };
+	public class_meth_equal_arrow_multi_public = (
+		arg1,
+	) => { console.log(1); };
+	private class_meth_equal_arrow_multi_private = (
+		arg1,
+	) => { console.log(1); };
+	protected class_meth_equal_arrow_multi_protected = (
+		arg1,
+	) => { console.log(1); };
+
+	class_meth() {
 		return 1;
 	}
-	class_meth_proto() {
-		return 2;
-	}
-	class_meth_es6 = (foo) => {
-		console.log(1);
-	}
+	static class_meth_static() {}
+	public class_meth_public() {}
+	private class_meth_private() {}
+	protected class_meth_protected() {}
+
 	if (foo) {
 		console.log(1);
 	}
@@ -212,6 +235,25 @@ class ClassName {
 		var index = 0;
 		while (true)
 			yield index++;
+	}
+
+	class_member = 1;
+	class_member_typed: number = 1;
+
+	class_member_array = [];
+	class_member_object = {};
+
+	get class_getter() {
+		return 1;
+	}
+	get class_getter_typed(): number {
+		return 1;
+	}
+	set class_setter(foo) {
+		return this.something = foo;
+	}
+	set class_setter_typed(foo: string) {
+		return this.something = foo;
 	}
 }
 

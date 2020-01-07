@@ -193,16 +193,19 @@ class ClassName {
 	) => {
 		console.log(1);
 	};
+	class_meth_equal_arrow_async = async () => {
+		return 1;
+	}
 	static class_meth_static() {
 		return 1;
 	}
-	async async_class_meth() {
+	async class_meth_async() {
 		return 2;
 	}
 	class_meth_proto() {
 		return 2;
 	}
-	class_meth_es6 = (foo) => {
+	class_meth_arrow = (foo) => {
 		console.log(1);
 	}
 	if (foo) {

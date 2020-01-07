@@ -196,6 +196,9 @@ class ClassName {
 	static class_meth_static() {
 		return 1;
 	}
+	async async_class_meth() {
+		return 2;
+	}
 	class_meth_proto() {
 		return 2;
 	}

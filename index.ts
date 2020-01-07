@@ -490,6 +490,7 @@ export let exp10 = 1, exp11 = 2; // exp10, exp11
 export const exp12 = 1, exp13 = 2; // exp12, exp13
 export var exp14 = 1, exp15 = 2; // exp14, exp15
 export function exp16() {} // exp16
+export class exp17 {} // exp17
 
 // default exports
 export default { exp17, exp18, exp19 };
@@ -500,6 +501,7 @@ export default let exp26 = 1, exp27 = 2; // exp26, exp27
 export default const exp28 = 1, exp29 = 2; // exp28, exp29
 export default var exp30 = 1, exp31 = 2; // exp30, exp31
 export default function exp32() {} // exp32
+export default class exp33 {} // exp33
 
 /*
 

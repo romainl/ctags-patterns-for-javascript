@@ -219,6 +219,12 @@ class ClassName {
 		while (true)
 			yield index++;
 	}
+	get class_getter() {
+		return this.class_constr_prop;
+	}
+	get class_setter(opt) {
+		this.class_constr_prop = opt;
+	}
 }
 
 

@@ -99,6 +99,9 @@ var function_arrow_multiline = (
 ) => {
 	return 1;
 };
+const _function_arrow_underscore = (foo) => {
+	return 1;
+}
 
 
 // async

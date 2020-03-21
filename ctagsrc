@@ -107,9 +107,40 @@
 --regex-javascript=/^[ \t]*var[ \t]\{1,\}\([A-Za-z0-9_$]\{1,\}\)[ \t]*=[ \t]*new/\1/V,Variable,Variables/b
 --regex-javascript=/^[ \t]*let[ \t]\{1,\}\([A-Za-z0-9_$]\{1,\}\)[ \t]*=[ \t]*new/\1/V,Variable,Variables/b
 --regex-javascript=/^[ \t]*const[ \t]\{1,\}\([A-Za-z0-9_$]\{1,\}\)[ \t]*=[ \t]*new/\1/V,Variable,Variables/b
+
 --regex-javascript=/^[ \t]*var[ \t]\{1,\}\([A-Za-z0-9_$]\{1,\}\)[ \t]*[,;]/\1/V,Variable,Variables/b
 --regex-javascript=/^[ \t]*let[ \t]\{1,\}\([A-Za-z0-9_$]\{1,\}\)[ \t]*[,;]/\1/V,Variable,Variables/b
 --regex-javascript=/^[ \t]*var[ \t]\{1,\}\([A-Za-z0-9_$]\{1,\}\)[ \t]*,[ \t]*\([A-Za-z0-9_$]\{1,\}\)/\2/V,Variable,Variables/b
 --regex-javascript=/^[ \t]*let[ \t]\{1,\}\([A-Za-z0-9_$]\{1,\}\)[ \t]*,[ \t]*\([A-Za-z0-9_$]\{1,\}\)/\2/V,Variable,Variables/b
 --regex-javascript=/^[ \t]*var[ \t]\{1,\}\([A-Za-z0-9_$]\{1,\}\)[ \t]*,[ \t]*\([A-Za-z0-9_$]\{1,\}\)[ \t]*,[ \t]*\([A-Za-z0-9_$]\{1,\}\)/\3/V,Variable,Variables/b
 --regex-javascript=/^[ \t]*let[ \t]\{1,\}\([A-Za-z0-9_$]\{1,\}\)[ \t]*,[ \t]*\([A-Za-z0-9_$]\{1,\}\)[ \t]*,[ \t]*\([A-Za-z0-9_$]\{1,\}\)/\3/V,Variable,Variables/b
+
+--regex-javascript=/^[ \t]*const[ \t]\{1,\}{[ \t]*\([a-z][A-Za-z0-9_$]\{1,\}\)[^}]*}[ \t]*=/\1/V,Variable,Variables/b
+--regex-javascript=/^[ \t]*const[ \t]\{1,\}{[ \t]*\([a-z][A-Za-z0-9_$]\{1,\}\)[ \t]*,[ \t]*\([a-z][A-Za-z0-9_$]\{1,\}\)[^}]*}[ \t]*=/\2/V,Variable,Variables/b
+--regex-javascript=/^[ \t]*const[ \t]\{1,\}{[ \t]*\([a-z][A-Za-z0-9_$]\{1,\}\)[ \t]*,[ \t]*\([a-z][A-Za-z0-9_$]\{1,\}\)[ \t]*,[ \t]*\([a-z][A-Za-z0-9_$]\{1,\}\)[^}]*}[ \t]*=/\3/V,Variable,Variables/b
+--regex-javascript=/^[ \t]*const[ \t]\{1,\}{[ \t]*\([a-z][A-Za-z0-9_$]\{1,\}\)[ \t]*,[ \t]*\([a-z][A-Za-z0-9_$]\{1,\}\)[ \t]*[ \t]*,[ \t]*\([a-z][A-Za-z0-9_$]\{1,\}\)[ \t]*,[ \t]*\([a-z][A-Za-z0-9_$]\{1,\}\)[^}]*}[ \t]*=/\4/V,Variable,Variables/b
+--regex-javascript=/^[ \t]*const[ \t]\{1,\}\[[ \t]*\([a-z][A-Za-z0-9_$]\{1,\}\).*\][ \t]*=/\1/V,Variable,Variables/b
+--regex-javascript=/^[ \t]*const[ \t]\{1,\}\[[ \t]*\([a-z][A-Za-z0-9_$]\{1,\}\)[ \t]*,[ \t]*\([a-z][A-Za-z0-9_$]\{1,\}\).*\][ \t]*=/\2/V,Variable,Variables/b
+--regex-javascript=/^[ \t]*const[ \t]\{1,\}\[[ \t]*\([a-z][A-Za-z0-9_$]\{1,\}\)[ \t]*,[ \t]*\([a-z][A-Za-z0-9_$]\{1,\}\)[ \t]*,[ \t]*\([a-z][A-Za-z0-9_$]\{1,\}\).*\][ \t]*=/\3/V,Variable,Variables/b
+--regex-javascript=/^[ \t]*const[ \t]\{1,\}\[[ \t]*\([a-z][A-Za-z0-9_$]\{1,\}\)[ \t]*,[ \t]*\([a-z][A-Za-z0-9_$]\{1,\}\)[ \t]*[ \t]*,[ \t]*\([a-z][A-Za-z0-9_$]\{1,\}\)[ \t]*,[ \t]*\([a-z][A-Za-z0-9_$]\{1,\}\).*\][ \t]*=/\4/V,Variable,Variables/b
+
+--regex-javascript=/^[ \t]*var[ \t]\{1,\}{[ \t]*\([a-z][A-Za-z0-9_$]\{1,\}\)[^}]*}[ \t]*=/\1/V,Variable,Variables/b
+--regex-javascript=/^[ \t]*var[ \t]\{1,\}{[ \t]*\([a-z][A-Za-z0-9_$]\{1,\}\)[ \t]*,[ \t]*\([a-z][A-Za-z0-9_$]\{1,\}\)[^}]*}[ \t]*=/\2/V,Variable,Variables/b
+--regex-javascript=/^[ \t]*var[ \t]\{1,\}{[ \t]*\([a-z][A-Za-z0-9_$]\{1,\}\)[ \t]*,[ \t]*\([a-z][A-Za-z0-9_$]\{1,\}\)[ \t]*,[ \t]*\([a-z][A-Za-z0-9_$]\{1,\}\)[^}]*}[ \t]*=/\3/V,Variable,Variables/b
+--regex-javascript=/^[ \t]*var[ \t]\{1,\}{[ \t]*\([a-z][A-Za-z0-9_$]\{1,\}\)[ \t]*,[ \t]*\([a-z][A-Za-z0-9_$]\{1,\}\)[ \t]*[ \t]*,[ \t]*\([a-z][A-Za-z0-9_$]\{1,\}\)[ \t]*,[ \t]*\([a-z][A-Za-z0-9_$]\{1,\}\)[^}]*}[ \t]*=/\4/V,Variable,Variables/b
+--regex-javascript=/^[ \t]*var[ \t]\{1,\}\[[ \t]*\([a-z][A-Za-z0-9_$]\{1,\}\).*\][ \t]*=/\1/V,Variable,Variables/b
+--regex-javascript=/^[ \t]*var[ \t]\{1,\}\[[ \t]*\([a-z][A-Za-z0-9_$]\{1,\}\)[ \t]*,[ \t]*\([a-z][A-Za-z0-9_$]\{1,\}\).*\][ \t]*=/\2/V,Variable,Variables/b
+--regex-javascript=/^[ \t]*var[ \t]\{1,\}\[[ \t]*\([a-z][A-Za-z0-9_$]\{1,\}\)[ \t]*,[ \t]*\([a-z][A-Za-z0-9_$]\{1,\}\)[ \t]*,[ \t]*\([a-z][A-Za-z0-9_$]\{1,\}\).*\][ \t]*=/\3/V,Variable,Variables/b
+--regex-javascript=/^[ \t]*var[ \t]\{1,\}\[[ \t]*\([a-z][A-Za-z0-9_$]\{1,\}\)[ \t]*,[ \t]*\([a-z][A-Za-z0-9_$]\{1,\}\)[ \t]*[ \t]*,[ \t]*\([a-z][A-Za-z0-9_$]\{1,\}\)[ \t]*,[ \t]*\([a-z][A-Za-z0-9_$]\{1,\}\).*\][ \t]*=/\4/V,Variable,Variables/b
+
+--regex-javascript=/^[ \t]*let[ \t]\{1,\}{[ \t]*\([a-z][A-Za-z0-9_$]\{1,\}\)[^}]*}[ \t]*=/\1/V,Variable,Variables/b
+--regex-javascript=/^[ \t]*let[ \t]\{1,\}{[ \t]*\([a-z][A-Za-z0-9_$]\{1,\}\)[ \t]*,[ \t]*\([a-z][A-Za-z0-9_$]\{1,\}\)[^}]*}[ \t]*=/\2/V,Variable,Variables/b
+--regex-javascript=/^[ \t]*let[ \t]\{1,\}{[ \t]*\([a-z][A-Za-z0-9_$]\{1,\}\)[ \t]*,[ \t]*\([a-z][A-Za-z0-9_$]\{1,\}\)[ \t]*,[ \t]*\([a-z][A-Za-z0-9_$]\{1,\}\)[^}]*}[ \t]*=/\3/V,Variable,Variables/b
+--regex-javascript=/^[ \t]*let[ \t]\{1,\}{[ \t]*\([a-z][A-Za-z0-9_$]\{1,\}\)[ \t]*,[ \t]*\([a-z][A-Za-z0-9_$]\{1,\}\)[ \t]*[ \t]*,[ \t]*\([a-z][A-Za-z0-9_$]\{1,\}\)[ \t]*,[ \t]*\([a-z][A-Za-z0-9_$]\{1,\}\)[^}]*}[ \t]*=/\4/V,Variable,Variables/b
+--regex-javascript=/^[ \t]*let[ \t]\{1,\}\[[ \t]*\([a-z][A-Za-z0-9_$]\{1,\}\).*\][ \t]*=/\1/V,Variable,Variables/b
+--regex-javascript=/^[ \t]*let[ \t]\{1,\}\[[ \t]*\([a-z][A-Za-z0-9_$]\{1,\}\)[ \t]*,[ \t]*\([a-z][A-Za-z0-9_$]\{1,\}\).*\][ \t]*=/\2/V,Variable,Variables/b
+--regex-javascript=/^[ \t]*let[ \t]\{1,\}\[[ \t]*\([a-z][A-Za-z0-9_$]\{1,\}\)[ \t]*,[ \t]*\([a-z][A-Za-z0-9_$]\{1,\}\)[ \t]*,[ \t]*\([a-z][A-Za-z0-9_$]\{1,\}\).*\][ \t]*=/\3/V,Variable,Variables/b
+--regex-javascript=/^[ \t]*let[ \t]\{1,\}\[[ \t]*\([a-z][A-Za-z0-9_$]\{1,\}\)[ \t]*,[ \t]*\([a-z][A-Za-z0-9_$]\{1,\}\)[ \t]*[ \t]*,[ \t]*\([a-z][A-Za-z0-9_$]\{1,\}\)[ \t]*,[ \t]*\([a-z][A-Za-z0-9_$]\{1,\}\).*\][ \t]*=/\4/V,Variable,Variables/b
+
+--regex-javascript=/^[ \t]\{1,\}\([A-Za-z0-9_$]\{1,\}\),$/\1/V,Variable,Variables/b
+--regex-javascript=/^[ \t]\{1,\}\([A-Za-z0-9_$]\{1,\}\)$/\1/V,Variable,Variables/b

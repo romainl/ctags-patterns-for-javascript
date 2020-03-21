@@ -163,10 +163,10 @@ If for some reason the above instructions sound like Klingon to you, just copy t
     var|let|const var_name;                             | var_name            | V
     var|let|const ..., var_name;                        | var_name            | V
     var|let|const ..., ..., var_name;                   | var_name            | V
-
-TODO:
-
-* Special kinds for special types (RegExp, Math, Map, etc.)?
+    var|let|const [ var1, var2, var3 ] = useState([]);  | var1, var2, var3    | V
+    var|let|const { var1, var2, var3 } = props;         | var1, var2, var3    | V
+        var_name,                                       | var_name            | V
+        var_name                                        | var_name            | V
 
 ## Named imports
 

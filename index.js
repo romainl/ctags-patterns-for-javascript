@@ -31,14 +31,14 @@ var obj_lit = {
 	},
 	obj_lit_prop_regexp : /regexp/,
 	obj_lit_prop_method : function(
-		arg1,
-		arg2
+		obj_lit_prop_method_arg1_own_line,
+		obj_lit_prop_method_arg2_own_line
 	){
 		return this;
 	},
 	obj_lit_prop_method_arrow : (
-		arg1,
-		arg2
+		obj_lit_prop_method_arrow_arg1_own_line,
+		obj_lit_prop_method_arrow_arg2_own_line
 	) => {
 		console.log(1);
 	}
@@ -48,14 +48,14 @@ this.this_prop = {
 	this_inner_prop: "bar"
 };
 this.this_prop_method = function(
-	arg1,
-	arg2
+	this_prop_method_arg1_own_line,
+	this_prop_method_arg2_own_line
 ){
 	return this;
 }
 this.this_prop_method_arrow = (
-	arg1,
-	arg2
+	this_prop_method_arrow_arg1_own_line,
+	this_prop_method_arrow_arg2_own_line
 ) => {
 	console.log(1);
 };
@@ -94,8 +94,8 @@ const function_const = function() {
 const function_arrow = (arg) => arg;
 const function_arrow_no_parentheses = arg => arg;
 var function_arrow_multiline = (
-	foo,
-	bar
+	function_arrow_multiline_foo_own_line,
+	function_arrow_multiline_bar_own_line
 ) => {
 	return 1;
 };
@@ -185,14 +185,14 @@ class ClassName {
 		};
 	}
 	class_meth_equal = function(
-		arg1,
-		arg2
+		class_meth_equal_arg1_own_line,
+		class_meth_equal_arg2_own_line
 	) {
 		return this;
 	};
 	class_meth_equal_arrow = (
-		arg1,
-		arg2
+		class_meth_equal_arrow_arg1_own_line,
+		class_meth_equal_arrow_arg2_own_line
 	) => {
 		console.log(1);
 	};
@@ -252,6 +252,18 @@ var var_declaration_inlined_1_of_2_trailing_space , var_declaration_inlined_2_of
 let let_declaration_inlined_1_of_2_trailing_space , let_declaration_inlined_2_of_2_trailing_space ;
 var var_declaration_inlined_1_of_3_trailing_space , var_declaration_inlined_2_of_3_trailing_space , var_declaration_inlined_3_of_3_trailing_space ;
 let let_declaration_inlined_1_of_3_trailing_space , let_declaration_inlined_2_of_3_trailing_space , let_declaration_inlined_3_of_3_trailing_space ;
+const [const_destructuration_1] = foo;
+const [const_destructuration_2, const_destructuration_3] = foo;
+const [const_destructuration_4, const_destructuration_5, const_destructuration_6] = foo;
+const [const_destructuration_7, const_destructuration_8, const_destructuration_9, const_destructuration_10] = foo;
+const {const_destructuration_braces_1} = foo;
+const {const_destructuration_braces_2, const_destructuration_braces_3} = foo;
+const {const_destructuration_braces_4, const_destructuration_braces_5, const_destructuration_braces_6} = foo;
+const {const_destructuration_braces_7, const_destructuration_braces_8, const_destructuration_braces_9, const_destructuration_braces_10} = foo;
+const {
+	const_destructuration_own_line_1,
+	const_destructuration_own_line_2
+}
 
 
 // imports

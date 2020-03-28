@@ -191,6 +191,17 @@ Tagging direct imports would be redundant so we only tag named imports.
     import * as imp31, * as imp32, * as imp33           | imp31, imp32, imp33 | I
     import foo as imp34, bar as imp35, baz as imp36     | imp34, imp35, imp36 | I
 
+## Flow imports
+
+Same story as imports, tagging direct imports would be redundant so we only tag named imports.
+
+    CODE                                                | TAG                 | KIND
+    ----------------------------------------------------|---------------------|-----
+    import type {foo as impFlow01} from ...             | impFlow01           | I
+    import type * as impFlow02 from ...                 | impFlow02           | I
+    import typeof {foo as impFlow03} from ...           | impFlow03           | I
+    import typeof * as impFlow04 from ...               | impFlow04           | I
+
 ## Named exports
 
 Same story as imports, tagging direct exports would be redundant so we only tag named exports.

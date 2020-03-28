@@ -287,7 +287,10 @@ import imp30, imp31, * as imp32 // imp32
 import imp33, imp34, baz as imp35 // imp35
 import * as imp36, * as imp37, * as imp38 // imp36, imp37, imp38
 import foo as imp39, bar as imp40, baz as imp41 // imp39, imp40, imp41
-import imp42, imp43, imp44
+import {
+	foo as imp42, // imp42
+	bar as imp43  // imp43
+}
 
 // imports (flow)
 // --------------

@@ -190,6 +190,7 @@ Tagging direct imports would be redundant so we only tag named imports.
     import imp28, imp29, baz as imp30                   | imp30               | I
     import * as imp31, * as imp32, * as imp33           | imp31, imp32, imp33 | I
     import foo as imp34, bar as imp35, baz as imp36     | imp34, imp35, imp36 | I
+    foo as imp37                                        | imp37               | I
 
 ## Flow imports
 

@@ -39,11 +39,13 @@ This is done to have a single source of patterns and avoid duplicated tags.
 
         $ git clone https://github.com/romainl/ctags-patterns-for-javascript.git
 
-2. Make sure you don't have a `~/.ctags` file.
-
-3. Build a `tags` file against the provided `index.js`:
+2. Build a `tags` file against the provided `index.js`:
 
         $ make tags
+
+   or:
+
+        $ ctags --options=NONE --options=./ctagsrc -f tags index.js
 
 ## Use
 

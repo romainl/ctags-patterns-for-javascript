@@ -138,7 +138,6 @@ If for some reason the above instructions sound like Klingon to you, just copy t
     CODE                                                | TAG                 | KIND
     ----------------------------------------------------|---------------------|-----
     class ClassName {...                                | ClassName           | C
-    var|let|const Constructor = function() {...         | Constructor         | C
 
 ## Methods
 

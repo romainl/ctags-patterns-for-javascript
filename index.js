@@ -88,8 +88,14 @@ function function_basic() {
 (function function_iife() {
 	return 2;
 })();
-const function_const = function() {
+var function_var = function() {
 	return 3;
+};
+let function_let = function() {
+	return 4;
+};
+const function_const = function() {
+	return 5;
 };
 const function_arrow = (arg) => arg;
 const function_arrow_no_parentheses = arg => arg;
